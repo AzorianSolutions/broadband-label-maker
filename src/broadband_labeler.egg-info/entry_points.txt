@@ -1,0 +1,3 @@
+[console_scripts]
+bbl = lib.cli.app:cli
+
