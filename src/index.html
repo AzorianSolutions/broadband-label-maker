@@ -15,6 +15,10 @@
     <!-- Theme Style -->
     <link rel="stylesheet" href="static/dist/css/adminlte.min.css">
     <!-- App Styles -->
+    <style>
+        h1 a {margin-right: 0.5em;}
+        .card-body table > thead > tr > th:last-of-type,.card-body table > tbody > tr > td:last-of-type{text-align:center}
+    </style>
     <style id="label-css">
         .bbl{font-size:small;line-height:1.4;border:1px solid #000;float:left;width:300px;padding:.5rem;margin-bottom:.5rem;background-color:#fff}
         .bbl p{margin:0}
@@ -24,7 +28,6 @@
         .bbl section h5{font-weight:400;font-size:.8rem;padding-left:1em;margin-bottom:0}
         .bbl section ul{padding:0 0 0 1em;margin:0 0 .5rem}
         .bbl section ul li{list-style-type:none;padding:0 0 0 .8em}
-        .card-body table > thead > th:last-of-type,.card-body table > tbody > tr > td:last-of-type{text-align:center}
         .bbl section.header{border-bottom-width:10px}
         .bbl section.header h1,h2{font-weight:700}
         .bbl section.header h1,h2,h3{margin:0 0 .1rem}
@@ -690,6 +693,7 @@
                             data-bind="text: additional_data_formatted"></span></p>
                 </section>
                 <section class="policies">
+                    <p data-bind="if: !network_management_policy_url().length && !privacy_policy_url().length">No policies provided.</p>
                     <p data-bind="if: network_management_policy_url().length">Network Management
                         <a href="#" target="_blank"
                            data-bind="attr: { href: network_management_policy_url, title: network_management_policy_url }">Read
