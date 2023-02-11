@@ -630,17 +630,15 @@
                 </section>
                 <section class="additional-charges">
                     <h4>Additional Charges &amp; Terms</h4>
-                    <h5>Provider Monthly Fees</h5>
+                    <h5>Provider Monthly Fees<span data-bind="ifnot: monthly_fees().length">None</span></h5>
                     <ul>
-                        <li data-bind="ifnot: monthly_fees().length">None <span>$0</span></li>
                         <!-- ko foreach: monthly_fees -->
                         <li><span data-bind="text: $data.label"></span> <span
                                 data-bind="text: '$' + $data.fee()"></span></li>
                         <!-- /ko -->
                     </ul>
-                    <h5>One-time Fees at the Time of Purchase</h5>
+                    <h5>One-time Fees at the Time of Purchase<span data-bind="ifnot: one_time_fees().length">None</span></h5>
                     <ul>
-                        <li data-bind="ifnot: one_time_fees().length">None <span>$0</span></li>
                         <!-- ko foreach: one_time_fees -->
                         <li><span data-bind="text: $data.label"></span> <span
                                 data-bind="text: '$' + $data.fee()"></span></li>
@@ -692,11 +690,11 @@
                             data-bind="text: additional_data_formatted"></span></p>
                 </section>
                 <section class="policies">
-                    <p>Network Management
+                    <p data-bind="if: network_management_policy_url().length">Network Management
                         <a href="#" target="_blank"
                            data-bind="attr: { href: network_management_policy_url, title: network_management_policy_url }">Read
                             our Policy</a></p>
-                    <p>Privacy
+                    <p data-bind="if: privacy_policy_url().length">Privacy
                         <a href="#" target="_blank"
                            data-bind="attr: { href: privacy_policy_url, title: privacy_policy_url }">Read
                             our Policy</a></p>
@@ -864,21 +862,21 @@
 
         self.addMonthlyFee = function () {
             self.monthly_fees.push({
-                label: ko.observable(''),
-                fee: ko.observable(''),
+                label: ko.observable('Fee Label'),
+                fee: ko.observable(0),
             });
         };
 
         self.addOneTimeFee = function () {
             self.one_time_fees.push({
-                label: ko.observable(''),
-                fee: ko.observable(''),
+                label: ko.observable('Fee Label'),
+                fee: ko.observable(0),
             });
         };
 
         self.addDiscount = function () {
             self.discounts.push({
-                label: ko.observable(''),
+                label: ko.observable('Discount Label'),
                 amount: ko.observable(''),
                 url: ko.observable(''),
             });
@@ -971,6 +969,11 @@
                     label: ko.observable('Senior Discount'),
                     amount: ko.observable('15%'),
                     url: ko.observable('https://your-website.com/discounts#seniors'),
+                },
+                {
+                    label: ko.observable('Summer Special'),
+                    amount: ko.observable('$10/month'),
+                    url: ko.observable('https://your-website.com/discounts#summer-special'),
                 },
             ],
             download_speed: 75,
