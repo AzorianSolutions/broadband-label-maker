@@ -61,6 +61,7 @@
                 additional_data_amount: 100,
                 support_url: 'https://your-website.com/support',
                 support_phone: '5555555555',
+                support_email: 'support@your-website.com',
             }));
         });
     </script>
@@ -221,7 +222,8 @@
                             <section class="support">
                                 <h4>Customer Support</h4>
                                 <p>Contact Us: <a href="#" target="_blank" data-bind="text: support_phone_formatted, attr: { href: support_phone_url, title: support_phone_formatted }"></a></p>
-                                <p>&nbsp;<a href="#" target="_blank" data-bind="text: support_url, attr: { href: support_url, title: support_url }"></a></p>
+                                <p data-bind="if: support_url">&nbsp;<a href="#" target="_blank" data-bind="text: support_url, attr: { href: support_url, title: support_url }"></a></p>
+                                <p data-bind="if: support_email">&nbsp;<a href="#" target="_blank" data-bind="text: support_email, attr: { href: 'mailto:' + support_email(), title: support_email }"></a></p>
                             </section>
                             <section class="footer">
                                 <p>Learn more about the terms used on this label by visiting the Federal Communications Commission's Consumer Resource Center.</p>

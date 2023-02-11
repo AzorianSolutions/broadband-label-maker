@@ -177,6 +177,7 @@ label.error {
 
 .bbl section.support p {
     padding-left: 1em;
+    margin-top: 0.2em;
 }
 
 .bbl section.support p a {
@@ -189,6 +190,10 @@ label.error {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
+}
+
+.bbl section.footer p:nth-child(0n+2) {
+    margin: 0.2em 0 0.2em 0;
 }
 
 .bbl section.footer p:nth-child(0n+2) a {
