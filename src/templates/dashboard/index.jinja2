@@ -200,7 +200,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Data</span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="txtAdditionalDataCharge"
+                                                    <input type="text" class="form-control" id="txtAdditionalDataAmount"
                                                            placeholder="Enter Additional Data Amount"
                                                            data-bind="value: additional_data_amount, valueUpdate: 'afterkeydown'">
                                                     <select class="form-control" id="selAdditionalDataUnit"
@@ -227,17 +227,27 @@
 
                                             <div class="form-group">
                                                 <label for="txtMonthlyPrice">Monthly Price</label>
-                                                <input type="text" class="form-control" id="txtMonthlyPrice"
-                                                       placeholder="Enter Monthly Price"
-                                                       data-bind="value: monthly_price, valueUpdate: 'afterkeydown'">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">$</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="txtMonthlyPrice"
+                                                           placeholder="Enter Monthly Price"
+                                                           data-bind="value: monthly_price, valueUpdate: 'afterkeydown'">
+                                                </div>
                                             </div>
                                             <!-- /.form-group -->
 
                                             <div class="form-group">
                                                 <label for="txtIntroPrice">Intro Price</label>
-                                                <input type="text" class="form-control" id="txtIntroPrice"
-                                                       placeholder="Enter Intro Price"
-                                                       data-bind="value: intro_price, valueUpdate: 'afterkeydown'">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">$</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="txtIntroPrice"
+                                                           placeholder="Enter Intro Price"
+                                                           data-bind="value: intro_price, valueUpdate: 'afterkeydown'">
+                                                </div>
                                             </div>
                                             <!-- /.form-group -->
 
