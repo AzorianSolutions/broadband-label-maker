@@ -1,6 +1,26 @@
 {% extends 'layout/layout.jinja2' %}
 {% block title %}Dashboard{% endblock %}
 
+{% block footer_scripts %}
+    <script type="text/javascript">
+        $(function () {
+            ko.applyBindings(new LabelModel({
+                id: 'BRNZ-1234567890',
+                provider_name: 'Azorian Solutions',
+                service_plan_name: 'Bronze 10',
+                technology: 'Fixed',
+                monthly_price: 69.99,
+                early_termination_fee: 0,
+                download_speed: 75,
+                upload_speed: 20,
+                latency: 20,
+                support_url: 'https://your-website.com/support',
+                support_phone: '5555555555',
+            }));
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -9,7 +29,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fas fa-house"></i> Label Maker</h1>
+                        <h1><i class="fas fa-house"></i> Broadband Labeler</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -29,21 +49,122 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-8">
                         <div class="card card-row card-primary">
 
                             <div class="card-header">
-                                <h3 class="card-title">Placeholder</h3>
+                                <h3 class="card-title">Label Maker</h3>
                             </div>
                             <!-- /.card-header -->
 
-                            <div class="card-body">
-                                <p>Nothing to see here currently.</p>
-                            </div>
-                            <!-- /.card-body -->
+                            <form action="">
+                                <div class="card-body">
+
+                                    <div class="form-group">
+                                        <label for="txtProviderName">Provider Name</label>
+                                        <input type="text" class="form-control" id="txtProviderName"
+                                               placeholder="Enter Brand Name"
+                                               data-bind="value: provider_name, valueUpdate: 'afterkeydown'">
+                                    </div>
+                                    <!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label for="txtServicePlanName">Service Plan Name</label>
+                                        <input type="text" class="form-control" id="txtServicePlanName"
+                                               placeholder="Enter Service Plan Name"
+                                               data-bind="value: service_plan_name, valueUpdate: 'afterkeydown'">
+                                    </div>
+                                    <!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label for="selTechnology">Technology</label>
+                                        <select class="form-control" id="selTechnology"
+                                                data-bind="options: technologies, value: technology, optionsCaption: 'Select a Technology...'">
+                                        </select>
+                                    </div>
+                                    <!-- /.form-group -->
+
+                                </div>
+                                <!-- /.card-body -->
+                            </form>
+                            <!-- /form -->
 
                         </div>
                         <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="col-4">
+
+                        <article class="bbl">
+                            <section class="header">
+                                <h1>Broadband Facts</h1>
+                                <h2 class="provider-name" data-bind="text: provider_name"></h2>
+                                <h3 class="service-plan" data-bind="text: service_plan_name"></h3>
+                                <p>
+                                    <span data-bind="text: technology"></span>
+                                    <span>Broadband Consumer Disclosure</span>
+                                </p>
+                            </section>
+                            <section class="monthly">
+                                <h4>Monthly Price <span data-bind="text: monthly_price_formatted"></span></h4>
+                                <p>This Monthly Price <span>IS NOT</span> an introductory rate.</p>
+                                <p>This rate does not expire.</p>
+                                <p>This Monthly Price <span>DOES NOT</span> require a contract.</p>
+                            </section>
+                            <section class="additional-charges">
+                                <h4>Additional Charges &amp; Terms</h4>
+                                <h5>Provider Monthly Fees</h5>
+                                <ul>
+                                    <li>Service Fee <span>$69.99</span></li>
+                                </ul>
+                                <h5>One-time Fees at the Time of Purchase</h5>
+                                <ul>
+                                    <li>Install Fee <span>$199.99</span></li>
+                                </ul>
+                                <h5>Early Termination Fee <span data-bind="text: early_termination_fee_formatted"></span></h5>
+                                <h5>Government Taxes <span>Varies by Location</span></h5>
+                            </section>
+                            <section class="discounts">
+                                <h4>Discounts &amp; Bundles</h4>
+                                <p><a href="#" target="_blank">Click Here</a> for available billing discounts and
+                                    pricing options for broadband service bundled with other services like video,
+                                    phone, and wireless service, and use your own equipment like modems and routers.</p>
+                                <p>No Discounts available.</p>
+                            </section>
+                            <section class="acp">
+                                <h4>Affordable Connectivity Program (ACP)</h4>
+                                <p>The ACP is a government program to help lower the monthly cost of internet service.
+                                    To learn more about the ACP, including to find out whether you qualify, visit
+                                    <a href="https://affordableconnectivity.gov" target="_blank">affordableconnectivity.gov</a>.</p>
+                                <p>Participates in the ACP <span>No</span></p>
+                            </section>
+                            <section class="speeds">
+                                <h4>Speeds Provided with Plan</h4>
+                                <p>Typical Download Speed <span data-bind="text: download_speed"></span></p>
+                                <p>Typical Upload Speed <span data-bind="text: upload_speed"></span></p>
+                                <p>Typical Latency <span data-bind="text: latency"></span></p>
+                            </section>
+                            <section class="data">
+                                <h4>Data Included with Monthly Price <span></span></h4>
+                                <p>Charges for Additional Data Usage <span></span></p>
+                            </section>
+                            <section class="policies">
+                                <p>Network Management <a href="#" target="_blank">Read our Policy</a></p>
+                                <p>Privacy <a href="#" target="_blank">Read our Policy</a></p>
+                            </section>
+                            <section class="support">
+                                <h4>Customer Support</h4>
+                                <p>Contact Us: <a href="#" target="_blank" data-bind="text: support_phone_formatted, attr: { href: support_phone_url, title: support_phone_formatted }"></a></p>
+                                <p>&nbsp;<a href="#" target="_blank" data-bind="text: support_url, attr: { href: support_url, title: support_url }"></a></p>
+                            </section>
+                            <section class="footer">
+                                <p>Learn more about the terms used on this label by visiting the Federal Communications Commission's Consumer Resource Center.</p>
+                                <p>&nbsp;<a href="https://fcc.gov/consumer" target="_blank">fcc.gov/consumer</a></p>
+                                <p data-bind="text: id"></p>
+                            </section>
+                        </article>
+
                     </div>
                     <!-- /.col -->
                 </div>
