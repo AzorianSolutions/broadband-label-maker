@@ -28,6 +28,11 @@ let LabelModel = function (data) {
     // Define defaults
     let defaults = {
         technologies: ['Fixed', 'Mobile'],
+        data_units: ['TB', 'GB', 'MB', 'KB'],
+        latency_units: ['ns', 'ms', 's'],
+        period_units: ['day(s)', 'month(s)', 'year(s)'],
+        speed_units: ['Gbps', 'Mbps', 'Kbps'],
+        binary_options: ['No', 'Yes'],
         id: null,
         provider_name: null,
         service_plan_name: null,
@@ -44,7 +49,7 @@ let LabelModel = function (data) {
         early_termination_fee: null,
         discounts_url: null,
         discounts: [],
-        acp: false,
+        acp: 'No',
         download_speed: null,
         download_speed_unit: 'Mbps',
         upload_speed: null,
@@ -68,6 +73,11 @@ let LabelModel = function (data) {
 
     // Initialize model properties
     self.technologies = ko.observableArray(data.technologies)
+    self.data_units = ko.observableArray(data.data_units)
+    self.latency_units = ko.observableArray(data.latency_units)
+    self.period_units = ko.observableArray(data.period_units)
+    self.speed_units = ko.observableArray(data.speed_units)
+    self.binary_options = ko.observableArray(data.binary_options)
     self.id = ko.observable(data.id)
     self.provider_name = ko.observable(data.provider_name)
     self.service_plan_name = ko.observable(data.service_plan_name)
