@@ -21,7 +21,7 @@ let validateErrorPlacement = function (error, element) {
     error.appendTo(element.parents('.form-group'))
 }
 
-let LabelModel = function(data) {
+let LabelModel = function (data) {
     // Create a reference to this for use within callbacks
     let self = this
 
@@ -34,16 +34,17 @@ let LabelModel = function(data) {
         technology: null,
         intro_price: null,
         intro_period: null,
+        intro_period_unit: 'month(s)',
         monthly_price: null,
         contract_length: null,
-        contract_length_unit: null,
+        contract_length_unit: 'month(s)',
         contract_terms_url: null,
         monthly_fees: [],
         one_time_fees: [],
         early_termination_fee: null,
         discounts_url: null,
         discounts: [],
-        acp: null,
+        acp: false,
         download_speed: null,
         download_speed_unit: 'Mbps',
         upload_speed: null,
@@ -51,10 +52,10 @@ let LabelModel = function(data) {
         latency: null,
         latency_unit: 'ms',
         data_included: null,
-        data_included_unit: null,
+        data_included_unit: 'GB',
         additional_data_charge: null,
         additional_data_amount: null,
-        additional_data_unit: null,
+        additional_data_unit: 'GB',
         network_management_policy_url: null,
         privacy_policy_url: null,
         support_url: null,
@@ -73,6 +74,7 @@ let LabelModel = function(data) {
     self.technology = ko.observable(data.technology)
     self.intro_price = ko.observable(data.intro_price)
     self.intro_period = ko.observable(data.intro_period)
+    self.intro_period_unit = ko.observable(data.intro_period_unit)
     self.monthly_price = ko.observable(data.monthly_price)
     self.contract_length = ko.observable(data.contract_length)
     self.contract_length_unit = ko.observable(data.contract_length_unit)
@@ -100,22 +102,29 @@ let LabelModel = function(data) {
     self.support_phone = ko.observable(data.support_phone)
     self.support_email = ko.observable(data.support_email)
 
-    self.monthly_price_formatted = ko.computed(function() {
-        return '$' + self.monthly_price();
+    self.data_included_formatted = ko.computed(function () {
+        if (self.data_included() == null) {
+            return 'Unlimited';
+        }
+        return self.data_included() + ' ' + self.data_included_unit();
     }, self);
 
-    self.early_termination_fee_formatted = ko.computed(function() {
-        return '$' + self.early_termination_fee();
+    self.additional_data_formatted = ko.computed(function () {
+        if (!self.additional_data_charge()) {
+            return 'None';
+        }
+        return '$' + self.additional_data_charge() + ' / ' + self.additional_data_amount()
+            + ' ' + self.additional_data_unit();
     }, self);
 
-    self.support_phone_formatted = ko.computed(function() {
+    self.support_phone_formatted = ko.computed(function () {
         area = self.support_phone().substr(0, 3);
         prefix = self.support_phone().substr(3, 3);
         suffix = self.support_phone().substr(6, 4);
         return '(' + area + ') ' + prefix + '-' + suffix;
     }, self);
 
-    self.support_phone_url = ko.computed(function() {
+    self.support_phone_url = ko.computed(function () {
         return 'tel:' + self.support_phone();
     }, self);
 }

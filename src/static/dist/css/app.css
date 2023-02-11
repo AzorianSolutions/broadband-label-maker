@@ -34,7 +34,7 @@ label.error {
     margin: 0 0 0.1rem 0;
 }
 
-.bbl section h4 span, .bbl section h5 span, .bbl section ul li span, .bbl section p span:last-child, .bbl section p a {
+.bbl section h4 span, .bbl section h5 span, .bbl section ul li span:last-child, .bbl section p span:last-child, .bbl section p a {
     float: right;
     font-weight: bold;
 }
@@ -108,6 +108,11 @@ label.error {
 
 .bbl section.monthly p span {
     float: none;
+    font-weight: bold;
+}
+
+.bbl section.monthly p a {
+    float: none;
 }
 
 /** Additional Charges **/
@@ -120,6 +125,10 @@ label.error {
 
 .bbl section.discounts p {
     padding-left: 1em;
+}
+
+.bbl section.discounts p:nth-child(0n+3) {
+    margin-top: 0.5rem;
 }
 
 .bbl section.discounts p a {

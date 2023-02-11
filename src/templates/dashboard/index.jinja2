@@ -9,11 +9,56 @@
                 provider_name: 'Azorian Solutions',
                 service_plan_name: 'Bronze 10',
                 technology: 'Fixed',
+                intro_price: 49.99,
+                intro_period: 12,
+                intro_period_units: 'months',
                 monthly_price: 69.99,
+                contract_length: 24,
+                contract_terms_url: 'https://your-website.com/contract-terms',
+                monthly_fees: [
+                    {
+                        label: 'Maintenance Fee',
+                        fee: 1.99,
+                    },
+                    {
+                        label: 'Network Fee',
+                        fee: 2.99,
+                    },
+                    {
+                        label: 'Equipment Fee',
+                        fee: 3.99,
+                    },
+                ],
+                one_time_fees: [
+                    {
+                        label: 'Install Fee',
+                        fee: 199.99,
+                    },
+                    {
+                        label: 'Equipment Fee',
+                        fee: 99.99,
+                    },
+                ],
                 early_termination_fee: 0,
+                discounts_url: 'https://your-website.com/discounts',
+                discounts: [
+                    {
+                        label: 'Military Discount',
+                        amount: '50%',
+                        url: 'https://your-website.com/discounts#military',
+                    },
+                    {
+                        label: 'Senior Discount',
+                        amount: '15%',
+                        url: 'https://your-website.com/discounts#seniors',
+                    },
+                ],
                 download_speed: 75,
                 upload_speed: 20,
                 latency: 20,
+                data_included: 1000,
+                additional_data_charge: 5,
+                additional_data_amount: 100,
                 support_url: 'https://your-website.com/support',
                 support_phone: '5555555555',
             }));
@@ -107,47 +152,67 @@
                                 </p>
                             </section>
                             <section class="monthly">
-                                <h4>Monthly Price <span data-bind="text: monthly_price_formatted"></span></h4>
-                                <p>This Monthly Price <span>IS NOT</span> an introductory rate.</p>
-                                <p>This rate does not expire.</p>
-                                <p>This Monthly Price <span>DOES NOT</span> require a contract.</p>
+                                <h4>Monthly Price <span data-bind="text: '$' + (intro_price() ? intro_price() : monthly_price())"></span></h4>
+                                <p>This Monthly Price <span data-bind="text: intro_price() ? 'is' : 'is not'"></span> an introductory rate.</p>
+                                <p data-bind="if: intro_period()">This rate expires after
+                                    <span data-bind="text: intro_period"></span> <span data-bind="text: intro_period_unit"></span>
+                                    and will revert to <span data-bind="text: '$' + monthly_price()"></span> per month.
+                                </p>
+                                <!-- ko if: contract_length -->
+                                <p>This Monthly Price requires a <span data-bind="text: contract_length"></span> <span data-bind="text: contract_length_unit"></span> contract.</p>
+                                <p><a href="#" target="_blank" data-bind="attr: { href: contract_terms_url, title: contract_terms_url }">Click Here</a> for contract terms.</p>
+                                <!-- /ko -->
+                                <p data-bind="ifnot: contract_length">
+                                    This Monthly Price does not require a contract.
                             </section>
                             <section class="additional-charges">
                                 <h4>Additional Charges &amp; Terms</h4>
                                 <h5>Provider Monthly Fees</h5>
                                 <ul>
-                                    <li>Service Fee <span>$69.99</span></li>
+                                    <li data-bind="ifnot: monthly_fees().length">None <span>$0</span></li>
+                                    <!-- ko foreach: monthly_fees -->
+                                    <li><span data-bind="text: $data.label"></span> <span data-bind="text: '$' + $data.fee"></span></li>
+                                    <!-- /ko -->
                                 </ul>
                                 <h5>One-time Fees at the Time of Purchase</h5>
                                 <ul>
-                                    <li>Install Fee <span>$199.99</span></li>
+                                    <li data-bind="ifnot: one_time_fees().length">None <span>$0</span></li>
+                                    <!-- ko foreach: one_time_fees -->
+                                    <li><span data-bind="text: $data.label"></span> <span data-bind="text: '$' + $data.fee"></span></li>
+                                    <!-- /ko -->
                                 </ul>
-                                <h5>Early Termination Fee <span data-bind="text: early_termination_fee_formatted"></span></h5>
+                                <h5>Early Termination Fee <span data-bind="text: '$' + early_termination_fee()"></span></h5>
                                 <h5>Government Taxes <span>Varies by Location</span></h5>
                             </section>
                             <section class="discounts">
                                 <h4>Discounts &amp; Bundles</h4>
-                                <p><a href="#" target="_blank">Click Here</a> for available billing discounts and
+                                <p data-bind="if: !discounts().length">No Discounts available.</p>
+                                <!-- ko if: discounts().length -->
+                                <p>
+                                    <a href="#" target="_blank" data-bind="attr: { href: discounts_url, title: discounts_url }">Click Here</a> for available billing discounts and
                                     pricing options for broadband service bundled with other services like video,
                                     phone, and wireless service, and use your own equipment like modems and routers.</p>
-                                <p>No Discounts available.</p>
+                                <ul data-bind="foreach: discounts">
+                                    <li><a href="#" target="_blank" data-bind="text: $data.label, attr: { href: $data.url, title: $data.url }"></a> <span data-bind="text: $data.amount"></span></li>
+                                </ul>
+                                <!-- /ko -->
                             </section>
                             <section class="acp">
                                 <h4>Affordable Connectivity Program (ACP)</h4>
                                 <p>The ACP is a government program to help lower the monthly cost of internet service.
                                     To learn more about the ACP, including to find out whether you qualify, visit
                                     <a href="https://affordableconnectivity.gov" target="_blank">affordableconnectivity.gov</a>.</p>
-                                <p>Participates in the ACP <span>No</span></p>
+                                <p>Participates in the ACP <span data-bind="text: acp() ? 'Yes' : 'No'"></span></p>
                             </section>
                             <section class="speeds">
                                 <h4>Speeds Provided with Plan</h4>
-                                <p>Typical Download Speed <span data-bind="text: download_speed"></span></p>
-                                <p>Typical Upload Speed <span data-bind="text: upload_speed"></span></p>
-                                <p>Typical Latency <span data-bind="text: latency"></span></p>
+                                <p>Typical Download Speed <span data-bind="text: download_speed() + ' ' + download_speed_unit()"></span></p>
+                                <p>Typical Upload Speed <span data-bind="text: upload_speed() + ' ' + upload_speed_unit()"></span></p>
+                                <p>Typical Latency <span data-bind="text: latency() + ' ' + latency_unit()"></span></p>
                             </section>
                             <section class="data">
-                                <h4>Data Included with Monthly Price <span></span></h4>
-                                <p>Charges for Additional Data Usage <span></span></p>
+                                <h4>Data Included with Monthly Price <span data-bind="text: data_included_formatted"></span></h4>
+                                <p data-bind="if: data_included">Charges for Additional Data Usage <span data-bind="text: additional_data_formatted"></span></p>
                             </section>
                             <section class="policies">
                                 <p>Network Management <a href="#" target="_blank">Read our Policy</a></p>
