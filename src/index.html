@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Azorian Solutions Broadband Label Maker">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, knockout, fcc, label, broadband, consumer">
+    <link rel="icon" type="image/x-icon" href="/static/dist/img/favicon/favicon.ico">
+    <title>Azorian Solutions Broadband Label Maker</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="/static/dist/css/adminlte.min.css">
+    <!-- App Styles -->
+    <style id="label-css">
+        /** General Label Styles **/
+        .bbl {
+            font-size: small;
+            line-height: 1.4;
+            border: 1px solid black;
+            float: left;
+            width: 300px;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            background-color: #fff;
+        }
+
+        .bbl p {
+            margin: 0;
+        }
+
+        .bbl section {
+            border-bottom: 2px solid black;
+            padding: 0 0 0.25rem 0;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .bbl section h4 {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin: 0 0 0.1rem 0;
+        }
+
+        .bbl section h4 span, .bbl section h5 span, .bbl section ul li span:last-child, .bbl section p span:last-child, .bbl section p a {
+            float: right;
+            font-weight: bold;
+        }
+
+        .bbl section h5 {
+            font-weight: normal;
+            font-size: 0.8rem;
+            padding-left: 1em;
+            margin-bottom: 0;
+        }
+
+        .bbl section ul {
+            padding: 0 0 0 1em;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .bbl section ul li {
+            list-style-type: none;
+            padding: 0 0 0 0.8em;
+        }
+
+        .card-body table > thead > th:last-of-type, .card-body table > tbody > tr > td:last-of-type {
+            text-align: center;
+        }
+
+        /** Header **/
+        .bbl section.header {
+            border-bottom-width: 10px;
+        }
+
+        .bbl section.header h1, h2 {
+            font-weight: bold;
+        }
+
+        .bbl section.header h1, h2, h3 {
+            margin: 0 0 0.1rem 0;
+        }
+
+        .bbl section.header h1 {
+            font-size: 2rem;
+            border-bottom: 2px solid #000;
+        }
+
+        .bbl section.header h2 {
+            font-size: 1.2rem;
+        }
+
+        .bbl section.header h3 {
+            font-size: 1rem;
+        }
+
+        .bbl section.header p {
+            margin: 0;
+        }
+
+        .bbl section.header p span:last-child {
+            float: none;
+        }
+
+        /** Monthly Price **/
+        .bbl section.monthly {
+            border-bottom: 2px solid #000;
+            padding: 0 0 0.25rem 0;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .bbl section.monthly h4 {
+            font-weight: bold;
+            font-size: 1rem;
+            border-bottom: 5px solid #000;
+            margin: 0 0 0.1rem 0;
+        }
+
+        .bbl section.monthly p {
+            margin-top: 0.4em;
+        }
+
+        .bbl section.monthly p span {
+            float: none;
+            font-weight: bold;
+        }
+
+        .bbl section.monthly p a {
+            float: none;
+        }
+
+        /** Additional Charges **/
+        .bbl section.additional-charges > h5:nth-child(0n+6) {
+            margin: 0 0 0.5rem 0;
+        }
+
+        /** Discounts & Bundles **/
+        .bbl section.discounts p {
+            padding-left: 1em;
+        }
+
+        .bbl section.discounts p:nth-child(0n+3) {
+            margin-top: 0.5rem;
+        }
+
+        .bbl section.discounts p a {
+            float: none;
+        }
+
+        .bbl section.discounts ul {
+            margin: 0.4em 0 0.2em 0;
+        }
+
+        /** Affordable Connectivity Program (ACP) **/
+        .bbl section.acp p {
+            padding-left: 1em;
+        }
+
+        .bbl section.acp p:nth-child(0n+3) {
+            padding: 0.2em 0 0 2em;
+            font-weight: bold;
+        }
+
+        .bbl section.acp p a {
+            float: none;
+        }
+
+        /** Speeds Provided with Plan **/
+        .bbl section.speeds p {
+            padding-left: 1em;
+        }
+
+        /** Data Included with Monthly Price **/
+        .bbl section.data p {
+            padding-left: 1em;
+        }
+
+        /** Policies **/
+        .bbl section.policies p {
+            font-weight: bold;
+        }
+
+        /** Customer Support **/
+        .bbl section.support p {
+            padding-left: 1em;
+            margin-top: 0.2em;
+        }
+
+        .bbl section.support p a {
+            float: none;
+        }
+
+        /** Footer **/
+        .bbl section.footer {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .bbl section.footer p:nth-child(0n+2) {
+            margin: 0.2em 0 0.2em 0;
+        }
+
+        .bbl section.footer p:nth-child(0n+2) a {
+            float: right;
+        }
+    </style>
+</head>
+<body class="sidebar-collapse">
+<div id="app">
+    <div class="wrapper">
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1><img alt="Azorian Solutions Logo" src="/static/dist/img/logo-primary-small.png"> Azorian
+                                Solutions Broadband Label Maker</h1>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <!-- /.content -->
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-10">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card card-row card-primary">
+
+                                        <div class="card-header">
+                                            <h3 class="card-title">Label Builder</h3>
+                                        </div>
+                                        <!-- /.card-header -->
+
+                                        <div class="card-body">
+
+                                            <div class="row">
+
+                                                <div class="col-3">
+
+                                                    <div class="form-group">
+                                                        <label for="txtProviderName">Provider Name</label>
+                                                        <input type="text" class="form-control" id="txtProviderName"
+                                                               placeholder="Enter Brand Name"
+                                                               data-bind="value: provider_name, valueUpdate: 'afterkeydown'">
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtServicePlanName">Service Plan Name</label>
+                                                        <input type="text" class="form-control" id="txtServicePlanName"
+                                                               placeholder="Enter Service Plan Name"
+                                                               data-bind="value: service_plan_name, valueUpdate: 'afterkeydown'">
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtPlanId">Service Plan ID</label>
+                                                        <input type="text" class="form-control" id="txtPlanId"
+                                                               placeholder="Enter Service Plan ID"
+                                                               data-bind="value: id, valueUpdate: 'afterkeydown'">
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="selTechnology">Technology</label>
+                                                        <select class="form-control" id="selTechnology"
+                                                                data-bind="options: technologies, value: technology">
+                                                        </select>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtDownloadSpeed">Download Speed</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control"
+                                                                   id="txtDownloadSpeed"
+                                                                   placeholder="Enter Download Speed"
+                                                                   data-bind="value: download_speed, valueUpdate: 'afterkeydown'">
+                                                            <select class="form-control" id="selDownloadSpeedUnit"
+                                                                    data-bind="options: speed_units, value: download_speed_unit">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtUploadSpeed">Upload Speed</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="txtUploadSpeed"
+                                                                   placeholder="Enter Upload Speed"
+                                                                   data-bind="value: upload_speed, valueUpdate: 'afterkeydown'">
+                                                            <select class="form-control" id="selUploadSpeedUnit"
+                                                                    data-bind="options: speed_units, value: upload_speed_unit">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtLatency">Latency</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="txtLatency"
+                                                                   placeholder="Enter Average Latency"
+                                                                   data-bind="value: latency, valueUpdate: 'afterkeydown'">
+                                                            <select class="form-control" id="selLatencyUnit"
+                                                                    data-bind="options: latency_units, value: latency_unit">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtDataIncluded">Data Included Monthly</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="txtDataIncluded"
+                                                                   placeholder="Enter Monthly Data Allowance"
+                                                                   data-bind="value: data_included, valueUpdate: 'afterkeydown'">
+                                                            <select class="form-control" id="selDataIncludedUnit"
+                                                                    data-bind="options: data_units, value: data_included_unit">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtAdditionalDataCharge">Additional Data
+                                                            Usage</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">$</span>
+                                                            </div>
+                                                            <input type="text" class="form-control"
+                                                                   id="txtAdditionalDataCharge"
+                                                                   placeholder="Enter Additional Data Charge"
+                                                                   data-bind="value: additional_data_charge, valueUpdate: 'afterkeydown'">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Data</span>
+                                                            </div>
+                                                            <input type="text" class="form-control"
+                                                                   id="txtAdditionalDataAmount"
+                                                                   placeholder="Enter Additional Data Amount"
+                                                                   data-bind="value: additional_data_amount, valueUpdate: 'afterkeydown'">
+                                                            <select class="form-control" id="selAdditionalDataUnit"
+                                                                    data-bind="options: data_units, value: additional_data_unit">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtNetworkManagementPolicyUrl">Network Management
+                                                            Policy
+                                                            URL</label>
+                                                        <input type="text" class="form-control"
+                                                               id="txtNetworkManagementPolicyUrl"
+                                                               placeholder="Enter Network Management Policy URL"
+                                                               data-bind="value: network_management_policy_url, valueUpdate: 'afterkeydown'">
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtPrivacyPolicyUrl">Privacy Policy URL</label>
+                                                        <input type="text" class="form-control" id="txtPrivacyPolicyUrl"
+                                                               placeholder="Enter Privacy Policy URL"
+                                                               data-bind="value: privacy_policy_url, valueUpdate: 'afterkeydown'">
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                </div>
+                                                <!-- /.col -->
+
+                                                <div class="col-3">
+
+                                                    <div class="form-group">
+                                                        <label for="txtMonthlyPrice">Monthly Price</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">$</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="txtMonthlyPrice"
+                                                                   placeholder="Enter Monthly Price"
+                                                                   data-bind="value: monthly_price, valueUpdate: 'afterkeydown'">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtIntroPrice">Intro Price</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">$</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="txtIntroPrice"
+                                                                   placeholder="Enter Intro Price"
+                                                                   data-bind="value: intro_price, valueUpdate: 'afterkeydown'">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtIntroPeriod">Intro Period</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="txtIntroPeriod"
+                                                                   placeholder="Enter Intro Length"
+                                                                   data-bind="value: intro_period, valueUpdate: 'afterkeydown'">
+                                                            <select class="form-control" id="selIntroPeriodUnit"
+                                                                    data-bind="options: period_units, value: intro_period_unit">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtContractLength">Contract Length</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control"
+                                                                   id="txtContractLength"
+                                                                   placeholder="Enter Contract Length"
+                                                                   data-bind="value: contract_length, valueUpdate: 'afterkeydown'">
+                                                            <select class="form-control" id="selContractLengthUnit"
+                                                                    data-bind="options: period_units, value: contract_length_unit">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtContractTermsUrl">Contract Terms URL</label>
+                                                        <input type="text" class="form-control" id="txtContractTermsUrl"
+                                                               placeholder="Enter Contract Terms URL"
+                                                               data-bind="value: contract_terms_url, valueUpdate: 'afterkeydown'">
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtEarlyTerminationFee">Early Termination
+                                                            Fee</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">$</span>
+                                                            </div>
+                                                            <input type="text" class="form-control"
+                                                                   id="txtEarlyTerminationFee"
+                                                                   placeholder="Enter Early Termination Fee"
+                                                                   data-bind="value: early_termination_fee, valueUpdate: 'afterkeydown'">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="selAcp">Affordable Connectivity Program</label>
+                                                        <select class="form-control" id="selAcp"
+                                                                data-bind="options: binary_options, value: acp">
+                                                        </select>
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtCSupportPhone">Support Phone</label>
+                                                        <input type="text" class="form-control" id="txtCSupportPhone"
+                                                               placeholder="Enter Support Phone Number"
+                                                               data-bind="value: support_phone, valueUpdate: 'afterkeydown'">
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtCSupportEmail">Support Email</label>
+                                                        <input type="text" class="form-control" id="txtCSupportEmail"
+                                                               placeholder="Enter Support Email"
+                                                               data-bind="value: support_email, valueUpdate: 'afterkeydown'">
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                    <div class="form-group">
+                                                        <label for="txtCSupportUrl">Support URL</label>
+                                                        <input type="text" class="form-control" id="txtCSupportUrl"
+                                                               placeholder="Enter Support URL"
+                                                               data-bind="value: support_url, valueUpdate: 'afterkeydown'">
+                                                    </div>
+                                                    <!-- /.form-group -->
+
+                                                </div>
+                                                <!-- /.col -->
+
+                                                <div class="col-6">
+
+                                                    <div class="card card-row card-secondary">
+
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Monthly Fees</h3>
+                                                            <div class="card-tools">
+                                                                <button type="button" class="btn btn-tool"
+                                                                        title="Add Monthly Fee"
+                                                                        data-bind="click: $root.addMonthlyFee">
+                                                                    <i class="fas fa-plus"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.card-header -->
+
+                                                        <div class="card-body table-responsive p-0">
+                                                            <table class="table table-hover text-nowrap">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Label</th>
+                                                                    <th>Fee</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody data-bind="foreach: monthly_fees">
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="text" class="form-control"
+                                                                               data-bind="value: $data.label, valueUpdate: 'afterkeydown'">
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text">$</span>
+                                                                            </div>
+                                                                            <input type="text" class="form-control"
+                                                                                   data-bind="value: $data.fee, valueUpdate: 'afterkeydown'">
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-tool"
+                                                                                title="Delete Fee"
+                                                                                data-bind="click: $root.removeMonthlyFee">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!-- /.card-body -->
+
+                                                    </div>
+                                                    <!-- /.card -->
+
+                                                    <div class="card card-row card-secondary">
+
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">One-time Fees</h3>
+                                                            <div class="card-tools">
+                                                                <button type="button" class="btn btn-tool"
+                                                                        title="Add One-time Fee"
+                                                                        data-bind="click: $root.addOneTimeFee">
+                                                                    <i class="fas fa-plus"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.card-header -->
+
+                                                        <div class="card-body table-responsive p-0">
+                                                            <table class="table table-hover text-nowrap">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Label</th>
+                                                                    <th>Fee</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody data-bind="foreach: one_time_fees">
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="text" class="form-control"
+                                                                               data-bind="value: $data.label, valueUpdate: 'afterkeydown'">
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text">$</span>
+                                                                            </div>
+                                                                            <input type="text" class="form-control"
+                                                                                   data-bind="value: $data.fee, valueUpdate: 'afterkeydown'">
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-tool"
+                                                                                title="Delete Fee"
+                                                                                data-bind="click: $root.removeOneTimeFee">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!-- /.card-body -->
+
+                                                    </div>
+                                                    <!-- /.card -->
+
+                                                    <div class="card card-row card-secondary">
+
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Discounts &amp; Bundles</h3>
+                                                            <div class="card-tools">
+                                                                <button type="button" class="btn btn-tool"
+                                                                        title="Add Discount"
+                                                                        data-bind="click: $root.addDiscount">
+                                                                    <i class="fas fa-plus"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.card-header -->
+
+                                                        <div class="card-body table-responsive p-0">
+                                                            <table class="table table-hover text-nowrap">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Label</th>
+                                                                    <th>Amount</th>
+                                                                    <th>URL</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody data-bind="foreach: discounts">
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="text" class="form-control"
+                                                                               data-bind="value: $data.label, valueUpdate: 'afterkeydown'">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" class="form-control"
+                                                                               data-bind="value: $data.amount, valueUpdate: 'afterkeydown'">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" class="form-control"
+                                                                               data-bind="value: $data.url, valueUpdate: 'afterkeydown'">
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-tool"
+                                                                                title="Delete Discount"
+                                                                                data-bind="click: $root.removeDiscount">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!-- /.card-body -->
+
+                                                    </div>
+                                                    <!-- /.card -->
+
+                                                </div>
+                                                <!-- /.col -->
+
+                                            </div>
+                                            <!-- /.row -->
+
+                                        </div>
+                                        <!-- /.card-body -->
+
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card card-row card-primary">
+
+                                        <div class="card-header">
+                                            <h3 class="card-title">Label Code</h3>
+                                        </div>
+                                        <!-- /.card-header -->
+
+                                        <div class="card-body">
+                                            <div class="row">
+
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="taCSS">Label CSS</label>
+                                                        <textarea class="form-control" id="taCSS" rows="3"
+                                                                  data-bind="click: $root.selectCode, text: label_css"></textarea>
+                                                    </div>
+                                                    <p>Paste this content into the HEAD section of your website.</p>
+                                                    <p>You only need to <strong>do this once</strong> for the entire
+                                                        site, not for each label.</p>
+                                                </div>
+                                                <!-- /.col -->
+
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="taLabel">Label Markup</label>
+                                                        <textarea class="form-control" id="taLabel" rows="3"
+                                                                  data-bind="click: $root.selectCode, text: label_markup"></textarea>
+                                                    </div>
+                                                    <p>Paste this content into your product web page where you would
+                                                        like
+                                                        the label to go.</p>
+                                                </div>
+                                                <!-- /.col -->
+
+                                            </div>
+                                            <!-- /.row -->
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+
+                        </div>
+                        <!-- /.col -->
+
+                        <div class="col-2" data-bind="template: 'label-template'">
+
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                </div><!-- /.container-fluid -->
+            </section>
+        </div>
+        <!-- /.content-wrapper -->
+
+        <script type="text/html" id="label-template">
+            <article class="bbl">
+                <section class="header">
+                    <h1>Broadband Facts</h1>
+                    <h2 data-bind="text: provider_name"></h2>
+                    <h3 data-bind="text: service_plan_name"></h3>
+                    <p data-bind="text: technology() + ' Broadband Consumer Disclosure'"></p>
+                </section>
+                <section class="monthly">
+                    <h4>Monthly Price <span
+                            data-bind="text: '$' + (intro_price() ? intro_price() : monthly_price())"></span>
+                    </h4>
+                    <p>This Monthly Price <span data-bind="text: intro_price() ? 'is' : 'is not'"></span> an
+                        introductory rate.</p>
+                    <p data-bind="if: intro_period()">This rate expires after
+                        <span data-bind="text: intro_period"></span> <span
+                                data-bind="text: intro_period_unit"></span>
+                        and will revert to <span data-bind="text: '$' + monthly_price()"></span> per month.
+                    </p>
+                    <!-- ko if: contract_length -->
+                    <p>This Monthly Price requires a <span data-bind="text: contract_length"></span> <span
+                            data-bind="text: contract_length_unit"></span> contract.</p>
+                    <p><a href="#" target="_blank"
+                          data-bind="attr: { href: contract_terms_url, title: contract_terms_url }">Click
+                        Here</a> for contract terms.</p>
+                    <!-- /ko -->
+                    <p data-bind="ifnot: contract_length">
+                        This Monthly Price does not require a contract.
+                </section>
+                <section class="additional-charges">
+                    <h4>Additional Charges &amp; Terms</h4>
+                    <h5>Provider Monthly Fees</h5>
+                    <ul>
+                        <li data-bind="ifnot: monthly_fees().length">None <span>$0</span></li>
+                        <!-- ko foreach: monthly_fees -->
+                        <li><span data-bind="text: $data.label"></span> <span
+                                data-bind="text: '$' + $data.fee()"></span></li>
+                        <!-- /ko -->
+                    </ul>
+                    <h5>One-time Fees at the Time of Purchase</h5>
+                    <ul>
+                        <li data-bind="ifnot: one_time_fees().length">None <span>$0</span></li>
+                        <!-- ko foreach: one_time_fees -->
+                        <li><span data-bind="text: $data.label"></span> <span
+                                data-bind="text: '$' + $data.fee()"></span></li>
+                        <!-- /ko -->
+                    </ul>
+                    <h5>Early Termination Fee <span
+                            data-bind="text: early_termination_fee() == '' ? 'None' : '$' + early_termination_fee()"></span>
+                    </h5>
+                    <h5>Government Taxes <span>Varies by Location</span></h5>
+                </section>
+                <section class="discounts">
+                    <h4>Discounts &amp; Bundles</h4>
+                    <p data-bind="if: !discounts().length">No Discounts available.</p>
+                    <!-- ko if: discounts().length -->
+                    <p>
+                        <a href="#" target="_blank"
+                           data-bind="attr: { href: discounts_url, title: discounts_url }">Click Here</a>
+                        for available billing discounts and
+                        pricing options for broadband service bundled with other services like video,
+                        phone, and wireless service, and use your own equipment like modems and routers.</p>
+                    <ul data-bind="foreach: discounts">
+                        <li><a href="#" target="_blank"
+                               data-bind="text: $data.label, attr: { href: $data.url, title: $data.url }"></a>
+                            <span data-bind="text: $data.amount"></span></li>
+                    </ul>
+                    <!-- /ko -->
+                </section>
+                <section class="acp">
+                    <h4>Affordable Connectivity Program (ACP)</h4>
+                    <p>The ACP is a government program to help lower the monthly cost of internet service.
+                        To learn more about the ACP, including to find out whether you qualify, visit
+                        <a href="https://affordableconnectivity.gov" target="_blank">affordableconnectivity.gov</a>.
+                    </p>
+                    <p>Participates in the ACP <span data-bind="text: acp"></span>
+                    </p>
+                </section>
+                <section class="speeds">
+                    <h4>Speeds Provided with Plan</h4>
+                    <p>Typical Download Speed <span
+                            data-bind="text: download_speed() + ' ' + download_speed_unit()"></span></p>
+                    <p>Typical Upload Speed <span
+                            data-bind="text: upload_speed() + ' ' + upload_speed_unit()"></span></p>
+                    <p>Typical Latency <span data-bind="text: latency() + ' ' + latency_unit()"></span></p>
+                </section>
+                <section class="data">
+                    <h4>Data Included with Monthly Price <span
+                            data-bind="text: data_included_formatted"></span></h4>
+                    <p data-bind="if: data_included">Charges for Additional Data Usage <span
+                            data-bind="text: additional_data_formatted"></span></p>
+                </section>
+                <section class="policies">
+                    <p>Network Management
+                        <a href="#" target="_blank"
+                           data-bind="attr: { href: network_management_policy_url, title: network_management_policy_url }">Read
+                            our Policy</a></p>
+                    <p>Privacy
+                        <a href="#" target="_blank"
+                           data-bind="attr: { href: privacy_policy_url, title: privacy_policy_url }">Read
+                            our Policy</a></p>
+                </section>
+                <section class="support">
+                    <h4>Customer Support</h4>
+                    <p>Contact Us: <a href="#" target="_blank"
+                                      data-bind="text: support_phone_formatted, attr: { href: support_phone_url, title: support_phone_formatted }"></a>
+                    </p>
+                    <p data-bind="if: support_email">&nbsp;<a href="#" target="_blank"
+                                                              data-bind="text: support_email, attr: { href: 'mailto:' + support_email(), title: support_email }"></a>
+                    </p>
+                    <p data-bind="if: support_url">&nbsp;<a href="#" target="_blank"
+                                                            data-bind="text: support_url, attr: { href: support_url, title: support_url }"></a>
+                    </p>
+                </section>
+                <section class="footer">
+                    <p>Learn more about the terms used on this label by visiting the Federal Communications
+                        Commission's Consumer Resource Center.</p>
+                    <p>&nbsp;<a href="https://fcc.gov/consumer" target="_blank">fcc.gov/consumer</a></p>
+                    <p data-bind="text: id"></p>
+                </section>
+            </article>
+        </script>
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 0.1.0
+            </div>
+            <strong>Created by <a href="https://azorian.solutions" target="_blank">Azorian Solutions</a>.</strong>
+        </footer>
+    </div>
+</div>
+<!-- Font Awesome -->
+<script src="/static/plugins/fontawesome-free/js/all.min.js"></script>
+<!-- jQuery -->
+<script src="/static/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- KnockoutJS -->
+<script src="/static/plugins/knockout/knockout.js"></script>
+<!-- AdminLTE App -->
+<script src="/static/dist/js/adminlte.min.js"></script>
+<script type="text/javascript">
+    let LabelModel = function (data) {
+        // Create a reference to this for use within callbacks
+        let self = this
+
+        // Define defaults
+        let defaults = {
+            technologies: ['Fixed', 'Mobile'],
+            data_units: ['TB', 'GB', 'MB', 'KB'],
+            latency_units: ['ns', 'ms', 's'],
+            period_units: ['day(s)', 'month(s)', 'year(s)'],
+            speed_units: ['Gbps', 'Mbps', 'Kbps'],
+            binary_options: ['No', 'Yes'],
+            label_css: '',
+            label_markup: '',
+            id: null,
+            provider_name: null,
+            service_plan_name: null,
+            technology: null,
+            intro_price: null,
+            intro_period: null,
+            intro_period_unit: 'month(s)',
+            monthly_price: null,
+            contract_length: null,
+            contract_length_unit: 'month(s)',
+            contract_terms_url: null,
+            monthly_fees: [],
+            one_time_fees: [],
+            early_termination_fee: null,
+            discounts_url: null,
+            discounts: [],
+            acp: 'No',
+            download_speed: null,
+            download_speed_unit: 'Mbps',
+            upload_speed: null,
+            upload_speed_unit: 'Mbps',
+            latency: null,
+            latency_unit: 'ms',
+            data_included: null,
+            data_included_unit: 'GB',
+            additional_data_charge: null,
+            additional_data_amount: null,
+            additional_data_unit: 'GB',
+            network_management_policy_url: null,
+            privacy_policy_url: null,
+            support_url: null,
+            support_phone: null,
+            support_email: null
+        }
+
+        // Merge defaults with runtime data
+        data = $.extend(defaults, data)
+
+        // Initialize model properties
+        self.technologies = ko.observableArray(data.technologies)
+        self.data_units = ko.observableArray(data.data_units)
+        self.latency_units = ko.observableArray(data.latency_units)
+        self.period_units = ko.observableArray(data.period_units)
+        self.speed_units = ko.observableArray(data.speed_units)
+        self.binary_options = ko.observableArray(data.binary_options)
+        self.label_css = ko.observableArray(data.label_css)
+        self.label_markup = ko.observableArray(data.label_markup)
+        self.id = ko.observable(data.id)
+        self.provider_name = ko.observable(data.provider_name)
+        self.service_plan_name = ko.observable(data.service_plan_name)
+        self.technology = ko.observable(data.technology)
+        self.intro_price = ko.observable(data.intro_price)
+        self.intro_period = ko.observable(data.intro_period)
+        self.intro_period_unit = ko.observable(data.intro_period_unit)
+        self.monthly_price = ko.observable(data.monthly_price)
+        self.contract_length = ko.observable(data.contract_length)
+        self.contract_length_unit = ko.observable(data.contract_length_unit)
+        self.contract_terms_url = ko.observable(data.contract_terms_url)
+        self.monthly_fees = ko.observableArray(data.monthly_fees)
+        self.one_time_fees = ko.observableArray(data.one_time_fees)
+        self.early_termination_fee = ko.observable(data.early_termination_fee)
+        self.discounts_url = ko.observable(data.discounts_url)
+        self.discounts = ko.observableArray(data.discounts)
+        self.acp = ko.observable(data.acp)
+        self.download_speed = ko.observable(data.download_speed)
+        self.download_speed_unit = ko.observable(data.download_speed_unit)
+        self.upload_speed = ko.observable(data.upload_speed)
+        self.upload_speed_unit = ko.observable(data.upload_speed_unit)
+        self.latency = ko.observable(data.latency)
+        self.latency_unit = ko.observable(data.latency_unit)
+        self.data_included = ko.observable(data.data_included)
+        self.data_included_unit = ko.observable(data.data_included_unit)
+        self.additional_data_charge = ko.observable(data.additional_data_charge)
+        self.additional_data_amount = ko.observable(data.additional_data_amount)
+        self.additional_data_unit = ko.observable(data.additional_data_unit)
+        self.network_management_policy_url = ko.observable(data.network_management_policy_url)
+        self.privacy_policy_url = ko.observable(data.privacy_policy_url)
+        self.support_url = ko.observable(data.support_url)
+        self.support_phone = ko.observable(data.support_phone)
+        self.support_email = ko.observable(data.support_email)
+
+        self.data_included_formatted = ko.computed(function () {
+            if (!self.data_included() && self.data_included() !== 0) {
+                return 'Unlimited';
+            }
+            return self.data_included() + ' ' + self.data_included_unit();
+        }, self);
+
+        self.additional_data_formatted = ko.computed(function () {
+            if (!self.additional_data_charge()) {
+                return 'None';
+            }
+            return '$' + self.additional_data_charge() + ' / ' + self.additional_data_amount()
+                + ' ' + self.additional_data_unit();
+        }, self);
+
+        self.support_phone_formatted = ko.computed(function () {
+            area = self.support_phone().substr(0, 3);
+            prefix = self.support_phone().substr(3, 3);
+            suffix = self.support_phone().substr(6, 4);
+            return '(' + area + ') ' + prefix + '-' + suffix;
+        }, self);
+
+        self.support_phone_url = ko.computed(function () {
+            return 'tel:' + self.support_phone();
+        }, self);
+
+        self.addMonthlyFee = function () {
+            self.monthly_fees.push({
+                label: ko.observable(''),
+                fee: ko.observable(''),
+            });
+        };
+
+        self.addOneTimeFee = function () {
+            self.one_time_fees.push({
+                label: ko.observable(''),
+                fee: ko.observable(''),
+            });
+        };
+
+        self.addDiscount = function () {
+            self.discounts.push({
+                label: ko.observable(''),
+                amount: ko.observable(''),
+                url: ko.observable(''),
+            });
+        };
+
+        self.removeMonthlyFee = function (fee) {
+            self.monthly_fees.remove(fee);
+        };
+
+        self.removeOneTimeFee = function (fee) {
+            self.one_time_fees.remove(fee);
+        };
+
+        self.removeDiscount = function (discount) {
+            self.discounts.remove(discount);
+        };
+
+        self.selectCode = function (model, event) {
+            self.updateLabelMarkup();
+            let element = event.target;
+            element.select();
+            element.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(element.value);
+        }
+
+        self.updateLabelCSS = function () {
+            let tpl = $("<div>");
+            ko.applyBindingsToNode(tpl[0], {template: {name: 'label-css', data: self}});
+            let css = '<style>\n' + tpl.html().trim() + '\n</style>';
+            tpl.remove();
+            self.label_css(css);
+        }
+
+        self.updateLabelMarkup = function () {
+            let tpl = $("<div>");
+            ko.applyBindingsToNode(tpl[0], {template: {name: 'label-template', data: self}});
+            let html = tpl.html().trim();
+            tpl.remove();
+            self.label_markup(html);
+        }
+
+        self.updateLabelCSS();
+    }
+
+    $(function () {
+        ko.applyBindings(new LabelModel({
+            id: 'BRNZ-1234567890',
+            provider_name: 'Azorian Solutions',
+            service_plan_name: 'Bronze 10',
+            technology: 'Fixed',
+            intro_price: 49.99,
+            intro_period: 12,
+            intro_period_units: 'months',
+            monthly_price: 69.99,
+            contract_length: 24,
+            contract_terms_url: 'https://your-website.com/contract-terms',
+            monthly_fees: [
+                {
+                    label: ko.observable('Equipment Rental'),
+                    fee: ko.observable(7.99),
+                },
+                {
+                    label: ko.observable('Insurance'),
+                    fee: ko.observable(2.99),
+                },
+                {
+                    label: ko.observable('Managed WiFi'),
+                    fee: ko.observable(3.99),
+                },
+            ],
+            one_time_fees: [
+                {
+                    label: ko.observable('Install Fee'),
+                    fee: ko.observable(199.99),
+                },
+                {
+                    label: ko.observable('Router Setup Fee'),
+                    fee: ko.observable(49.99),
+                },
+            ],
+            early_termination_fee: 250,
+            discounts_url: 'https://your-website.com/discounts',
+            discounts: [
+                {
+                    label: ko.observable('Military Discount'),
+                    amount: ko.observable('50%'),
+                    url: ko.observable('https://your-website.com/discounts#military'),
+                },
+                {
+                    label: ko.observable('Senior Discount'),
+                    amount: ko.observable('15%'),
+                    url: ko.observable('https://your-website.com/discounts#seniors'),
+                },
+            ],
+            download_speed: 75,
+            upload_speed: 20,
+            latency: 20,
+            data_included: 1000,
+            additional_data_charge: 5,
+            additional_data_amount: 100,
+            network_management_policy_url: 'https://your-website.com/network-management-policy',
+            privacy_policy_url: 'https://your-website.com/privacy-policy',
+            support_url: 'https://your-website.com/support',
+            support_phone: '5555555555',
+            support_email: 'support@your-website.com',
+        }));
+    });
+</script>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.azorian.solutions/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '4']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</body>
+</html>

@@ -1,9 +1,0 @@
-LICENSE
-README.md
-setup.py
-src/broadband_labeler.egg-info/PKG-INFO
-src/broadband_labeler.egg-info/SOURCES.txt
-src/broadband_labeler.egg-info/dependency_links.txt
-src/broadband_labeler.egg-info/entry_points.txt
-src/broadband_labeler.egg-info/requires.txt
-src/broadband_labeler.egg-info/top_level.txt
