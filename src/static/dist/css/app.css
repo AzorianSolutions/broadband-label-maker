@@ -16,6 +16,7 @@ label.error {
     width: 300px;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
+    background-color: #fff;
 }
 
 .bbl p {
@@ -135,6 +136,10 @@ label.error {
     float: none;
 }
 
+.bbl section.discounts ul {
+    margin-top: 0.4em;
+}
+
 /** Affordable Connectivity Program (ACP) **/
 
 .bbl section.acp p {
@@ -142,7 +147,7 @@ label.error {
 }
 
 .bbl section.acp p:nth-child(0n+3) {
-    padding-left: 2em;
+    padding: 0.4rem 0 0 2em;
     font-weight: bold;
 }
 

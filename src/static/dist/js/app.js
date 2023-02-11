@@ -103,7 +103,7 @@ let LabelModel = function (data) {
     self.support_email = ko.observable(data.support_email)
 
     self.data_included_formatted = ko.computed(function () {
-        if (self.data_included() == null) {
+        if (!self.data_included() && self.data_included() !== 0) {
             return 'Unlimited';
         }
         return self.data_included() + ' ' + self.data_included_unit();
