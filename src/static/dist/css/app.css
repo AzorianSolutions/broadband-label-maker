@@ -89,7 +89,7 @@ label.error {
 }
 
 .bbl section.header p span:last-child {
-    float: right;
+    float: none;
 }
 
 /** Monthly Price **/

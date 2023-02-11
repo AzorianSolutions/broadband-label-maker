@@ -145,12 +145,9 @@
                         <article class="bbl">
                             <section class="header">
                                 <h1>Broadband Facts</h1>
-                                <h2 class="provider-name" data-bind="text: provider_name"></h2>
-                                <h3 class="service-plan" data-bind="text: service_plan_name"></h3>
-                                <p>
-                                    <span data-bind="text: technology"></span>
-                                    <span>Broadband Consumer Disclosure</span>
-                                </p>
+                                <h2 data-bind="text: provider_name"></h2>
+                                <h3 data-bind="text: service_plan_name"></h3>
+                                <p data-bind="text: technology() + ' Broadband Consumer Disclosure'"></p>
                             </section>
                             <section class="monthly">
                                 <h4>Monthly Price <span data-bind="text: '$' + (intro_price() ? intro_price() : monthly_price())"></span></h4>
