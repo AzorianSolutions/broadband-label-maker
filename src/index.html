@@ -705,8 +705,11 @@
                 </section>
                 <section class="support">
                     <h4>Customer Support</h4>
-                    <p>Contact Us: <a href="#" target="_blank"
+                    <p>Contact Us:
+                        <!-- ko if: support_phone().length -->
+                        <a href="#" target="_blank"
                                       data-bind="text: support_phone_formatted, attr: { href: support_phone_url, title: support_phone_formatted }"></a>
+                        <!-- /ko -->
                     </p>
                     <p data-bind="if: support_email">&nbsp;<a href="#" target="_blank"
                                                               data-bind="text: support_email, attr: { href: 'mailto:' + support_email(), title: support_email }"></a>
