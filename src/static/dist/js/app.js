@@ -179,4 +179,5 @@ let LabelModel = function (data) {
     }
 
     self.updateLabelCSS();
+    self.updateLabelMarkup();
 }
