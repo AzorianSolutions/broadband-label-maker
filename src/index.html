@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Azorian Solutions Broadband Label Maker">
-    <meta name="keywords" content="app, responsive, jquery, bootstrap, knockout, fcc, label, broadband, consumer, bbl, maker, bblmaker">
+    <meta name="keywords"
+          content="app, responsive, jquery, bootstrap, knockout, fcc, label, broadband, consumer, bbl, maker, bblmaker">
     <link rel="icon" type="image/x-icon" href="static/dist/img/favicon/favicon.ico">
     <title>Azorian Solutions Broadband Label Maker</title>
     <!-- Google Font: Source Sans Pro -->
@@ -16,12 +17,13 @@
     <link rel="stylesheet" href="static/dist/css/adminlte.min.css">
     <!-- App Styles -->
     <style>
-        h1 a img { margin: 0 0.5em 0.5em 0; }
+        .content-header h1, .content-header a {display: inline-block;}
+        .content-header img {width: 50px;margin: 0 0.5em 0 0;}
         .card-body table > thead > tr > th:last-of-type, .card-body table > tbody > tr > td:last-of-type { text-align: center }
     </style>
     <!-- Label Styles -->
     <style id="label-css">
-        .bbl {font-size: small;line-height: 1.4;border: 1px solid #000;float: left;padding: .5rem;margin-bottom: .5rem;background-color: #fff;max-width: 400px;}
+        .bbl {font-size: small;line-height: 1.4;border: 1px solid #000;float: left;padding: .5rem;margin-bottom: .5rem;background-color: #fff;min-width: 250px;max-width: 400px;}
         .bbl a, .bbl a:active, .bbl a:hover, .bbl a:visited {color: #007bff;}
         .bbl p {margin: 0}
         .bbl section {border-bottom: 2px solid #000;padding: 0 0 .25rem;margin: 0 0 .5rem}
@@ -70,14 +72,12 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
-                    <div class="row mb-2">
+                    <div class="row">
                         <div class="col-12">
-                            <h1>
-                                <a href="https://azorian.solutions" target="_blank" title="Azorian Solutions">
-                                    <img alt="Azorian Solutions Logo" src="static/dist/img/logo-primary-small.png">
-                                </a>
-                                Azorian Solutions Broadband Label Maker
-                            </h1>
+                            <a href="https://azorian.solutions" target="_blank" title="Azorian Solutions">
+                                <img alt="Azorian Solutions Logo" src="static/dist/img/logo-primary-small.png">
+                            </a>
+                            <h1>Broadband Label Maker</h1>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -134,15 +134,18 @@
                                                         <div class="card-body">
                                                             <div class="form-group">
                                                                 <label for="txtProviderName">Provider Name</label>
-                                                                <input type="text" class="form-control" id="txtProviderName"
+                                                                <input type="text" class="form-control"
+                                                                       id="txtProviderName"
                                                                        placeholder="Enter Brand Name"
                                                                        data-bind="value: provider_name, valueUpdate: 'afterkeydown'">
                                                             </div>
                                                             <!-- /.form-group -->
 
                                                             <div class="form-group">
-                                                                <label for="txtServicePlanName">Service Plan Name</label>
-                                                                <input type="text" class="form-control" id="txtServicePlanName"
+                                                                <label for="txtServicePlanName">Service Plan
+                                                                    Name</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="txtServicePlanName"
                                                                        placeholder="Enter Service Plan Name"
                                                                        data-bind="value: service_plan_name, valueUpdate: 'afterkeydown'">
                                                             </div>
@@ -180,7 +183,8 @@
                                                                            id="txtDownloadSpeed"
                                                                            placeholder="Enter Download Speed"
                                                                            data-bind="value: download_speed, valueUpdate: 'afterkeydown'">
-                                                                    <select class="form-control" id="selDownloadSpeedUnit"
+                                                                    <select class="form-control"
+                                                                            id="selDownloadSpeedUnit"
                                                                             data-bind="options: speed_units, value: download_speed_unit">
                                                                     </select>
                                                                 </div>
@@ -190,7 +194,8 @@
                                                             <div class="form-group">
                                                                 <label for="txtUploadSpeed">Upload Speed</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" id="txtUploadSpeed"
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtUploadSpeed"
                                                                            placeholder="Enter Upload Speed"
                                                                            data-bind="value: upload_speed, valueUpdate: 'afterkeydown'">
                                                                     <select class="form-control" id="selUploadSpeedUnit"
@@ -203,7 +208,8 @@
                                                             <div class="form-group">
                                                                 <label for="txtLatency">Latency</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" id="txtLatency"
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtLatency"
                                                                            placeholder="Enter Average Latency"
                                                                            data-bind="value: latency, valueUpdate: 'afterkeydown'">
                                                                     <select class="form-control" id="selLatencyUnit"
@@ -224,12 +230,15 @@
                                                         <!-- /.card-header -->
                                                         <div class="card-body">
                                                             <div class="form-group">
-                                                                <label for="txtDataIncluded">Data Included Monthly</label>
+                                                                <label for="txtDataIncluded">Data Included
+                                                                    Monthly</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" id="txtDataIncluded"
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtDataIncluded"
                                                                            placeholder="Enter Monthly Data Allowance"
                                                                            data-bind="value: data_included, valueUpdate: 'afterkeydown'">
-                                                                    <select class="form-control" id="selDataIncludedUnit"
+                                                                    <select class="form-control"
+                                                                            id="selDataIncludedUnit"
                                                                             data-bind="options: data_units, value: data_included_unit">
                                                                     </select>
                                                                 </div>
@@ -254,7 +263,8 @@
                                                                            id="txtAdditionalDataAmount"
                                                                            placeholder="Enter Additional Data Amount"
                                                                            data-bind="value: additional_data_amount, valueUpdate: 'afterkeydown'">
-                                                                    <select class="form-control" id="selAdditionalDataUnit"
+                                                                    <select class="form-control"
+                                                                            id="selAdditionalDataUnit"
                                                                             data-bind="options: data_units, value: additional_data_unit">
                                                                     </select>
                                                                 </div>
@@ -272,7 +282,8 @@
                                                         <!-- /.card-header -->
                                                         <div class="card-body">
                                                             <div class="form-group">
-                                                                <label for="txtNetworkManagementPolicyUrl">Network Management
+                                                                <label for="txtNetworkManagementPolicyUrl">Network
+                                                                    Management
                                                                     Policy
                                                                     URL</label>
                                                                 <input type="text" class="form-control"
@@ -283,8 +294,10 @@
                                                             <!-- /.form-group -->
 
                                                             <div class="form-group">
-                                                                <label for="txtPrivacyPolicyUrl">Privacy Policy URL</label>
-                                                                <input type="text" class="form-control" id="txtPrivacyPolicyUrl"
+                                                                <label for="txtPrivacyPolicyUrl">Privacy Policy
+                                                                    URL</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="txtPrivacyPolicyUrl"
                                                                        placeholder="Enter Privacy Policy URL"
                                                                        data-bind="value: privacy_policy_url, valueUpdate: 'afterkeydown'">
                                                             </div>
@@ -311,7 +324,8 @@
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">$</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="txtMonthlyPrice"
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtMonthlyPrice"
                                                                            placeholder="Enter Monthly Price"
                                                                            data-bind="value: monthly_price, valueUpdate: 'afterkeydown'">
                                                                 </div>
@@ -324,7 +338,8 @@
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text">$</span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="txtIntroPrice"
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtIntroPrice"
                                                                            placeholder="Enter Intro Price"
                                                                            data-bind="value: intro_price, valueUpdate: 'afterkeydown'">
                                                                 </div>
@@ -334,7 +349,8 @@
                                                             <div class="form-group">
                                                                 <label for="txtIntroPeriod">Intro Period</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" id="txtIntroPeriod"
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtIntroPeriod"
                                                                            placeholder="Enter Intro Length"
                                                                            data-bind="value: intro_period, valueUpdate: 'afterkeydown'">
                                                                     <select class="form-control" id="selIntroPeriodUnit"
@@ -361,7 +377,8 @@
                                                                            id="txtContractLength"
                                                                            placeholder="Enter Contract Length"
                                                                            data-bind="value: contract_length, valueUpdate: 'afterkeydown'">
-                                                                    <select class="form-control" id="selContractLengthUnit"
+                                                                    <select class="form-control"
+                                                                            id="selContractLengthUnit"
                                                                             data-bind="options: period_units, value: contract_length_unit">
                                                                     </select>
                                                                 </div>
@@ -369,8 +386,10 @@
                                                             <!-- /.form-group -->
 
                                                             <div class="form-group">
-                                                                <label for="txtContractTermsUrl">Contract Terms URL</label>
-                                                                <input type="text" class="form-control" id="txtContractTermsUrl"
+                                                                <label for="txtContractTermsUrl">Contract Terms
+                                                                    URL</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="txtContractTermsUrl"
                                                                        placeholder="Enter Contract Terms URL"
                                                                        data-bind="value: contract_terms_url, valueUpdate: 'afterkeydown'">
                                                             </div>
@@ -397,7 +416,8 @@
 
                                                     <div class="card card-outline card-primary">
                                                         <div class="card-header">
-                                                            <h3 class="card-title">Affordable Connectivity Program (ACP)</h3>
+                                                            <h3 class="card-title">Affordable Connectivity Program
+                                                                (ACP)</h3>
                                                         </div>
                                                         <!-- /.card-header -->
                                                         <div class="card-body">
@@ -421,7 +441,8 @@
                                                         <div class="card-body">
                                                             <div class="form-group">
                                                                 <label for="txtCSupportPhone">Support Phone</label>
-                                                                <input type="text" class="form-control" id="txtCSupportPhone"
+                                                                <input type="text" class="form-control"
+                                                                       id="txtCSupportPhone"
                                                                        placeholder="Enter Support Phone Number"
                                                                        data-bind="value: support_phone, valueUpdate: 'afterkeydown'">
                                                             </div>
@@ -429,7 +450,8 @@
 
                                                             <div class="form-group">
                                                                 <label for="txtCSupportEmail">Support Email</label>
-                                                                <input type="text" class="form-control" id="txtCSupportEmail"
+                                                                <input type="text" class="form-control"
+                                                                       id="txtCSupportEmail"
                                                                        placeholder="Enter Support Email"
                                                                        data-bind="value: support_email, valueUpdate: 'afterkeydown'">
                                                             </div>
@@ -437,7 +459,8 @@
 
                                                             <div class="form-group">
                                                                 <label for="txtCSupportUrl">Support URL</label>
-                                                                <input type="text" class="form-control" id="txtCSupportUrl"
+                                                                <input type="text" class="form-control"
+                                                                       id="txtCSupportUrl"
                                                                        placeholder="Enter Support URL"
                                                                        data-bind="value: support_url, valueUpdate: 'afterkeydown'">
                                                             </div>
@@ -710,7 +733,8 @@
                 <b>Version</b> 0.1.0
             </div>
             <strong>Created by <a href="https://azorian.solutions" target="_blank">Azorian Solutions</a>. Want to
-                contribute? <a href="https://github.com/AzorianSolutions/broadband-label-maker" target="_blank">Find this on
+                contribute? <a href="https://github.com/AzorianSolutions/broadband-label-maker" target="_blank">Find
+                    this on
                     GitHub!</a> Want to buy me a coffee? <a href="https://www.buymeacoffee.com/AzorianMatt"
                                                             target="_blank">Click Here!</a></strong>
         </footer>
