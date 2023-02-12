@@ -164,14 +164,14 @@ let LabelModel = function (data) {
     self.updateLabelCSS = function () {
         let tpl = $("<div>");
         ko.applyBindingsToNode(tpl[0], {template: {name: 'label-css', data: self}});
-        let css = '<style>\n'
+        let css = '<style>'
             + tpl.text()
                 .replace(/([^0-9a-zA-Z.#])\s+/g, "$1")
                 .replace(/\s([^0-9a-zA-Z.#]+)/g, "$1")
                 .replace(/;}/g, "}")
                 .replace(/\/\*.*?\*\//g, "")
                 .trim()
-            + '\n</style>';
+            + '</style>';
 
         tpl.remove();
         self.label_css(css);
