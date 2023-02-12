@@ -126,247 +126,326 @@
 
                                                 <div class="col-lg-3 col-sm-6 col-xs-12">
 
-                                                    <div class="form-group">
-                                                        <label for="txtProviderName">Provider Name</label>
-                                                        <input type="text" class="form-control" id="txtProviderName"
-                                                               placeholder="Enter Brand Name"
-                                                               data-bind="value: provider_name, valueUpdate: 'afterkeydown'">
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtServicePlanName">Service Plan Name</label>
-                                                        <input type="text" class="form-control" id="txtServicePlanName"
-                                                               placeholder="Enter Service Plan Name"
-                                                               data-bind="value: service_plan_name, valueUpdate: 'afterkeydown'">
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtPlanId">Service Plan ID</label>
-                                                        <input type="text" class="form-control" id="txtPlanId"
-                                                               placeholder="Enter Service Plan ID"
-                                                               data-bind="value: id, valueUpdate: 'afterkeydown'">
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="selTechnology">Technology</label>
-                                                        <select class="form-control" id="selTechnology"
-                                                                data-bind="options: technologies, value: technology">
-                                                        </select>
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtDownloadSpeed">Download Speed</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control"
-                                                                   id="txtDownloadSpeed"
-                                                                   placeholder="Enter Download Speed"
-                                                                   data-bind="value: download_speed, valueUpdate: 'afterkeydown'">
-                                                            <select class="form-control" id="selDownloadSpeedUnit"
-                                                                    data-bind="options: speed_units, value: download_speed_unit">
-                                                            </select>
+                                                    <div class="card card-outline card-primary">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Plan Information</h3>
                                                         </div>
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtUploadSpeed">Upload Speed</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control" id="txtUploadSpeed"
-                                                                   placeholder="Enter Upload Speed"
-                                                                   data-bind="value: upload_speed, valueUpdate: 'afterkeydown'">
-                                                            <select class="form-control" id="selUploadSpeedUnit"
-                                                                    data-bind="options: speed_units, value: upload_speed_unit">
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtLatency">Latency</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control" id="txtLatency"
-                                                                   placeholder="Enter Average Latency"
-                                                                   data-bind="value: latency, valueUpdate: 'afterkeydown'">
-                                                            <select class="form-control" id="selLatencyUnit"
-                                                                    data-bind="options: latency_units, value: latency_unit">
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtDataIncluded">Data Included Monthly</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control" id="txtDataIncluded"
-                                                                   placeholder="Enter Monthly Data Allowance"
-                                                                   data-bind="value: data_included, valueUpdate: 'afterkeydown'">
-                                                            <select class="form-control" id="selDataIncludedUnit"
-                                                                    data-bind="options: data_units, value: data_included_unit">
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtAdditionalDataCharge">Additional Data
-                                                            Usage</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">$</span>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="txtProviderName">Provider Name</label>
+                                                                <input type="text" class="form-control" id="txtProviderName"
+                                                                       placeholder="Enter Brand Name"
+                                                                       data-bind="value: provider_name, valueUpdate: 'afterkeydown'">
                                                             </div>
-                                                            <input type="text" class="form-control"
-                                                                   id="txtAdditionalDataCharge"
-                                                                   placeholder="Enter Additional Data Charge"
-                                                                   data-bind="value: additional_data_charge, valueUpdate: 'afterkeydown'">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">Data</span>
+                                                            <!-- /.form-group -->
+
+                                                            <div class="form-group">
+                                                                <label for="txtServicePlanName">Service Plan Name</label>
+                                                                <input type="text" class="form-control" id="txtServicePlanName"
+                                                                       placeholder="Enter Service Plan Name"
+                                                                       data-bind="value: service_plan_name, valueUpdate: 'afterkeydown'">
                                                             </div>
-                                                            <input type="text" class="form-control"
-                                                                   id="txtAdditionalDataAmount"
-                                                                   placeholder="Enter Additional Data Amount"
-                                                                   data-bind="value: additional_data_amount, valueUpdate: 'afterkeydown'">
-                                                            <select class="form-control" id="selAdditionalDataUnit"
-                                                                    data-bind="options: data_units, value: additional_data_unit">
-                                                            </select>
+                                                            <!-- /.form-group -->
+
+                                                            <div class="form-group">
+                                                                <label for="txtPlanId">Service Plan ID</label>
+                                                                <input type="text" class="form-control" id="txtPlanId"
+                                                                       placeholder="Enter Service Plan ID"
+                                                                       data-bind="value: id, valueUpdate: 'afterkeydown'">
+                                                            </div>
+                                                            <!-- /.form-group -->
+
+                                                            <div class="form-group">
+                                                                <label for="selTechnology">Technology</label>
+                                                                <select class="form-control" id="selTechnology"
+                                                                        data-bind="options: technologies, value: technology">
+                                                                </select>
+                                                            </div>
+                                                            <!-- /.form-group -->
                                                         </div>
+                                                        <!-- /.card-body -->
                                                     </div>
-                                                    <!-- /.form-group -->
 
-                                                    <div class="form-group">
-                                                        <label for="txtNetworkManagementPolicyUrl">Network Management
-                                                            Policy
-                                                            URL</label>
-                                                        <input type="text" class="form-control"
-                                                               id="txtNetworkManagementPolicyUrl"
-                                                               placeholder="Enter Network Management Policy URL"
-                                                               data-bind="value: network_management_policy_url, valueUpdate: 'afterkeydown'">
-                                                    </div>
-                                                    <!-- /.form-group -->
+                                                    <div class="card card-outline card-primary">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Plan Speed</h3>
+                                                        </div>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="txtDownloadSpeed">Download Speed</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtDownloadSpeed"
+                                                                           placeholder="Enter Download Speed"
+                                                                           data-bind="value: download_speed, valueUpdate: 'afterkeydown'">
+                                                                    <select class="form-control" id="selDownloadSpeedUnit"
+                                                                            data-bind="options: speed_units, value: download_speed_unit">
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.form-group -->
 
-                                                    <div class="form-group">
-                                                        <label for="txtPrivacyPolicyUrl">Privacy Policy URL</label>
-                                                        <input type="text" class="form-control" id="txtPrivacyPolicyUrl"
-                                                               placeholder="Enter Privacy Policy URL"
-                                                               data-bind="value: privacy_policy_url, valueUpdate: 'afterkeydown'">
+                                                            <div class="form-group">
+                                                                <label for="txtUploadSpeed">Upload Speed</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" id="txtUploadSpeed"
+                                                                           placeholder="Enter Upload Speed"
+                                                                           data-bind="value: upload_speed, valueUpdate: 'afterkeydown'">
+                                                                    <select class="form-control" id="selUploadSpeedUnit"
+                                                                            data-bind="options: speed_units, value: upload_speed_unit">
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.form-group -->
+
+                                                            <div class="form-group">
+                                                                <label for="txtLatency">Latency</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" id="txtLatency"
+                                                                           placeholder="Enter Average Latency"
+                                                                           data-bind="value: latency, valueUpdate: 'afterkeydown'">
+                                                                    <select class="form-control" id="selLatencyUnit"
+                                                                            data-bind="options: latency_units, value: latency_unit">
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.form-group -->
+                                                        </div>
+                                                        <!-- /.card-body -->
                                                     </div>
-                                                    <!-- /.form-group -->
+                                                    <!-- /.card -->
+
+                                                    <div class="card card-outline card-primary">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Plan Data</h3>
+                                                        </div>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="txtDataIncluded">Data Included Monthly</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" id="txtDataIncluded"
+                                                                           placeholder="Enter Monthly Data Allowance"
+                                                                           data-bind="value: data_included, valueUpdate: 'afterkeydown'">
+                                                                    <select class="form-control" id="selDataIncludedUnit"
+                                                                            data-bind="options: data_units, value: data_included_unit">
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.form-group -->
+
+                                                            <div class="form-group">
+                                                                <label for="txtAdditionalDataCharge">Additional Data
+                                                                    Usage</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">$</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtAdditionalDataCharge"
+                                                                           placeholder="Enter Additional Data Charge"
+                                                                           data-bind="value: additional_data_charge, valueUpdate: 'afterkeydown'">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Data</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtAdditionalDataAmount"
+                                                                           placeholder="Enter Additional Data Amount"
+                                                                           data-bind="value: additional_data_amount, valueUpdate: 'afterkeydown'">
+                                                                    <select class="form-control" id="selAdditionalDataUnit"
+                                                                            data-bind="options: data_units, value: additional_data_unit">
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.form-group -->
+                                                        </div>
+                                                        <!-- /.card-body -->
+                                                    </div>
+                                                    <!-- /.card -->
+
+                                                    <div class="card card-outline card-primary">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Policy URLs</h3>
+                                                        </div>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="txtNetworkManagementPolicyUrl">Network Management
+                                                                    Policy
+                                                                    URL</label>
+                                                                <input type="text" class="form-control"
+                                                                       id="txtNetworkManagementPolicyUrl"
+                                                                       placeholder="Enter Network Management Policy URL"
+                                                                       data-bind="value: network_management_policy_url, valueUpdate: 'afterkeydown'">
+                                                            </div>
+                                                            <!-- /.form-group -->
+
+                                                            <div class="form-group">
+                                                                <label for="txtPrivacyPolicyUrl">Privacy Policy URL</label>
+                                                                <input type="text" class="form-control" id="txtPrivacyPolicyUrl"
+                                                                       placeholder="Enter Privacy Policy URL"
+                                                                       data-bind="value: privacy_policy_url, valueUpdate: 'afterkeydown'">
+                                                            </div>
+                                                            <!-- /.form-group -->
+                                                        </div>
+                                                        <!-- /.card-body -->
+                                                    </div>
+                                                    <!-- /.card -->
 
                                                 </div>
                                                 <!-- /.col -->
 
                                                 <div class="col-lg-3 col-sm-6 col-xs-12">
 
-                                                    <div class="form-group">
-                                                        <label for="txtMonthlyPrice">Monthly Price</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">$</span>
+                                                    <div class="card card-outline card-primary">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Base Plan Pricing</h3>
+                                                        </div>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="txtMonthlyPrice">Monthly Price</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">$</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" id="txtMonthlyPrice"
+                                                                           placeholder="Enter Monthly Price"
+                                                                           data-bind="value: monthly_price, valueUpdate: 'afterkeydown'">
+                                                                </div>
                                                             </div>
-                                                            <input type="text" class="form-control" id="txtMonthlyPrice"
-                                                                   placeholder="Enter Monthly Price"
-                                                                   data-bind="value: monthly_price, valueUpdate: 'afterkeydown'">
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.form-group -->
+                                                            <!-- /.form-group -->
 
-                                                    <div class="form-group">
-                                                        <label for="txtIntroPrice">Intro Price</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">$</span>
+                                                            <div class="form-group">
+                                                                <label for="txtIntroPrice">Intro Price</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">$</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" id="txtIntroPrice"
+                                                                           placeholder="Enter Intro Price"
+                                                                           data-bind="value: intro_price, valueUpdate: 'afterkeydown'">
+                                                                </div>
                                                             </div>
-                                                            <input type="text" class="form-control" id="txtIntroPrice"
-                                                                   placeholder="Enter Intro Price"
-                                                                   data-bind="value: intro_price, valueUpdate: 'afterkeydown'">
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.form-group -->
+                                                            <!-- /.form-group -->
 
-                                                    <div class="form-group">
-                                                        <label for="txtIntroPeriod">Intro Period</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control" id="txtIntroPeriod"
-                                                                   placeholder="Enter Intro Length"
-                                                                   data-bind="value: intro_period, valueUpdate: 'afterkeydown'">
-                                                            <select class="form-control" id="selIntroPeriodUnit"
-                                                                    data-bind="options: period_units, value: intro_period_unit">
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtContractLength">Contract Length</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control"
-                                                                   id="txtContractLength"
-                                                                   placeholder="Enter Contract Length"
-                                                                   data-bind="value: contract_length, valueUpdate: 'afterkeydown'">
-                                                            <select class="form-control" id="selContractLengthUnit"
-                                                                    data-bind="options: period_units, value: contract_length_unit">
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtContractTermsUrl">Contract Terms URL</label>
-                                                        <input type="text" class="form-control" id="txtContractTermsUrl"
-                                                               placeholder="Enter Contract Terms URL"
-                                                               data-bind="value: contract_terms_url, valueUpdate: 'afterkeydown'">
-                                                    </div>
-                                                    <!-- /.form-group -->
-
-                                                    <div class="form-group">
-                                                        <label for="txtEarlyTerminationFee">Early Termination
-                                                            Fee</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">$</span>
+                                                            <div class="form-group">
+                                                                <label for="txtIntroPeriod">Intro Period</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" id="txtIntroPeriod"
+                                                                           placeholder="Enter Intro Length"
+                                                                           data-bind="value: intro_period, valueUpdate: 'afterkeydown'">
+                                                                    <select class="form-control" id="selIntroPeriodUnit"
+                                                                            data-bind="options: period_units, value: intro_period_unit">
+                                                                    </select>
+                                                                </div>
                                                             </div>
-                                                            <input type="text" class="form-control"
-                                                                   id="txtEarlyTerminationFee"
-                                                                   placeholder="Enter Early Termination Fee"
-                                                                   data-bind="value: early_termination_fee, valueUpdate: 'afterkeydown'">
+                                                            <!-- /.form-group -->
                                                         </div>
+                                                        <!-- /.card-body -->
                                                     </div>
-                                                    <!-- /.form-group -->
+                                                    <!-- /.card -->
 
-                                                    <div class="form-group">
-                                                        <label for="selAcp">Affordable Connectivity Program</label>
-                                                        <select class="form-control" id="selAcp"
-                                                                data-bind="options: binary_options, value: acp">
-                                                        </select>
-                                                    </div>
-                                                    <!-- /.form-group -->
+                                                    <div class="card card-outline card-primary">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Plan Contract</h3>
+                                                        </div>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="txtContractLength">Contract Length</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtContractLength"
+                                                                           placeholder="Enter Contract Length"
+                                                                           data-bind="value: contract_length, valueUpdate: 'afterkeydown'">
+                                                                    <select class="form-control" id="selContractLengthUnit"
+                                                                            data-bind="options: period_units, value: contract_length_unit">
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.form-group -->
 
-                                                    <div class="form-group">
-                                                        <label for="txtCSupportPhone">Support Phone</label>
-                                                        <input type="text" class="form-control" id="txtCSupportPhone"
-                                                               placeholder="Enter Support Phone Number"
-                                                               data-bind="value: support_phone, valueUpdate: 'afterkeydown'">
-                                                    </div>
-                                                    <!-- /.form-group -->
+                                                            <div class="form-group">
+                                                                <label for="txtContractTermsUrl">Contract Terms URL</label>
+                                                                <input type="text" class="form-control" id="txtContractTermsUrl"
+                                                                       placeholder="Enter Contract Terms URL"
+                                                                       data-bind="value: contract_terms_url, valueUpdate: 'afterkeydown'">
+                                                            </div>
+                                                            <!-- /.form-group -->
 
-                                                    <div class="form-group">
-                                                        <label for="txtCSupportEmail">Support Email</label>
-                                                        <input type="text" class="form-control" id="txtCSupportEmail"
-                                                               placeholder="Enter Support Email"
-                                                               data-bind="value: support_email, valueUpdate: 'afterkeydown'">
+                                                            <div class="form-group">
+                                                                <label for="txtEarlyTerminationFee">Early Termination
+                                                                    Fee</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">$</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                           id="txtEarlyTerminationFee"
+                                                                           placeholder="Enter Early Termination Fee"
+                                                                           data-bind="value: early_termination_fee, valueUpdate: 'afterkeydown'">
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.form-group -->
+                                                        </div>
+                                                        <!-- /.card-body -->
                                                     </div>
-                                                    <!-- /.form-group -->
+                                                    <!-- /.card -->
 
-                                                    <div class="form-group">
-                                                        <label for="txtCSupportUrl">Support URL</label>
-                                                        <input type="text" class="form-control" id="txtCSupportUrl"
-                                                               placeholder="Enter Support URL"
-                                                               data-bind="value: support_url, valueUpdate: 'afterkeydown'">
+                                                    <div class="card card-outline card-primary">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Affordable Connectivity Program (ACP)</h3>
+                                                        </div>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="selAcp">Participate in ACP?</label>
+                                                                <select class="form-control" id="selAcp"
+                                                                        data-bind="options: binary_options, value: acp">
+                                                                </select>
+                                                            </div>
+                                                            <!-- /.form-group -->
+                                                        </div>
+                                                        <!-- /.card-body -->
                                                     </div>
-                                                    <!-- /.form-group -->
+                                                    <!-- /.card -->
+
+                                                    <div class="card card-outline card-primary">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Customer Support Information</h3>
+                                                        </div>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="txtCSupportPhone">Support Phone</label>
+                                                                <input type="text" class="form-control" id="txtCSupportPhone"
+                                                                       placeholder="Enter Support Phone Number"
+                                                                       data-bind="value: support_phone, valueUpdate: 'afterkeydown'">
+                                                            </div>
+                                                            <!-- /.form-group -->
+
+                                                            <div class="form-group">
+                                                                <label for="txtCSupportEmail">Support Email</label>
+                                                                <input type="text" class="form-control" id="txtCSupportEmail"
+                                                                       placeholder="Enter Support Email"
+                                                                       data-bind="value: support_email, valueUpdate: 'afterkeydown'">
+                                                            </div>
+                                                            <!-- /.form-group -->
+
+                                                            <div class="form-group">
+                                                                <label for="txtCSupportUrl">Support URL</label>
+                                                                <input type="text" class="form-control" id="txtCSupportUrl"
+                                                                       placeholder="Enter Support URL"
+                                                                       data-bind="value: support_url, valueUpdate: 'afterkeydown'">
+                                                            </div>
+                                                            <!-- /.form-group -->
+                                                        </div>
+                                                        <!-- /.card-body -->
+                                                    </div>
+                                                    <!-- /.card -->
 
                                                 </div>
                                                 <!-- /.col -->
