@@ -796,7 +796,7 @@
                 <!-- /ko -->
             </ul>
             <h5>Early Termination Fee <span
-                    data-bind="text: early_termination_fee() == '' ? 'None' : '$' + early_termination_fee()"></span>
+                    data-bind="text: early_termination_fee() == '' || !contract_length() ? 'None' : '$' + early_termination_fee()"></span>
             </h5>
             <h5>Government Taxes <span>Varies by Location</span></h5>
         </section>
