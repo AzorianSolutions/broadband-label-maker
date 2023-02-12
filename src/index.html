@@ -103,6 +103,20 @@
 
                                             <div class="row">
 
+                                                <div class="col-12">
+                                                    <div class="callout callout-warning">
+                                                        <h5>Notice!</h5>
+                                                        <p>The label will react based on the presence of different inputs. If something isn't applicable to your scenario, try clearing the associated input to obtain different results.</p>
+                                                        <p>For example, if you don't offer an introductory price, clear the value in the &quot;Intro Price&quot; field. If you don't require a contract, clear the value in the &quot;Contract Length&quot; field.</p>
+                                                    </div>
+                                                </div>
+                                                <!-- /.col-12 -->
+
+                                            </div>
+                                            <!-- /.row -->
+
+                                            <div class="row">
+
                                                 <div class="col-3">
 
                                                     <div class="form-group">
@@ -633,7 +647,7 @@
             </h4>
             <p>This Monthly Price <span data-bind="text: intro_price() ? 'is' : 'is not'"></span> an
                 introductory rate.</p>
-            <p data-bind="if: intro_period()">This rate expires after
+            <p data-bind="if: intro_price() && intro_period()">This rate expires after
                 <span data-bind="text: intro_period"></span> <span
                         data-bind="text: intro_period_unit"></span>
                 and will revert to <span data-bind="text: '$' + monthly_price()"></span> per month.
