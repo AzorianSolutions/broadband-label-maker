@@ -301,7 +301,7 @@
 
                                                     <div class="card card-outline card-primary">
                                                         <div class="card-header">
-                                                            <h3 class="card-title">Base Plan Pricing</h3>
+                                                            <h3 class="card-title">Plan Pricing</h3>
                                                         </div>
                                                         <!-- /.card-header -->
                                                         <div class="card-body">
@@ -727,9 +727,9 @@
         </section>
         <section class="monthly">
             <h4>Monthly Price <span
-                    data-bind="text: '$' + (intro_price() ? intro_price() : monthly_price())"></span>
+                    data-bind="text: '$' + (intro_price() && intro_period() ? intro_price() : monthly_price())"></span>
             </h4>
-            <p>This Monthly Price <span data-bind="text: intro_price() ? 'is' : 'is not'"></span> an
+            <p>This Monthly Price <span data-bind="text: intro_price() && intro_period() ? 'is' : 'is not'"></span> an
                 introductory rate.</p>
             <p data-bind="if: intro_price() && intro_period()">This rate expires after
                 <span data-bind="text: intro_period"></span> <span
