@@ -174,7 +174,7 @@ let LabelModel = function (data) {
         let tpl = $("<div>");
         ko.applyBindingsToNode(tpl[0], {template: {name: 'label-template', data: self}});
         let html = tpl.html()
-            .replace(/\>[\r\n ]+\</g, "><")
+            .replace(/>[\r\n ]+</g, "><")
             .replace(/(<.*?>)|\s+/g, (m, $1) => $1 ? $1 : ' ')
             .trim();
         tpl.remove();
