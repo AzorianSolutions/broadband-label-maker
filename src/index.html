@@ -19,8 +19,9 @@
         h1 a { margin-right: 0.5em; }
         .card-body table > thead > tr > th:last-of-type, .card-body table > tbody > tr > td:last-of-type { text-align: center }
     </style>
+    <!-- Label Styles -->
     <style id="label-css">
-        .bbl {font-size: small;line-height: 1.4;border: 1px solid #000;float: left;width: 300px;padding: .5rem;margin-bottom: .5rem;background-color: #fff}
+        .bbl {font-size: small;line-height: 1.4;border: 1px solid #000;float: left;padding: .5rem;margin-bottom: .5rem;background-color: #fff;max-width: 400px;}
         .bbl a, .bbl a:active, .bbl a:hover, .bbl a:visited {color: #007bff;}
         .bbl p {margin: 0}
         .bbl section {border-bottom: 2px solid #000;padding: 0 0 .25rem;margin: 0 0 .5rem}
@@ -70,10 +71,10 @@
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
+                        <div class="col-12">
                             <h1>
                                 <a href="https://azorian.solutions" target="_blank" title="Azorian Solutions">
-                                    <img alt="Azorian Solutions Logo" src="/static/dist/img/logo-primary-small.png">
+                                    <img alt="Azorian Solutions Logo" src="static/dist/img/logo-primary-small.png">
                                 </a>
                                 Azorian Solutions Broadband Label Maker
                             </h1>
@@ -88,7 +89,7 @@
                 <div class="container-fluid">
 
                     <div class="row">
-                        <div class="col-10">
+                        <div class="col-lg-10 col-xs-12">
 
                             <div class="row">
                                 <div class="col-12">
@@ -106,8 +107,14 @@
                                                 <div class="col-12">
                                                     <div class="callout callout-warning">
                                                         <h5>Notice!</h5>
-                                                        <p>The label will react based on the presence of different inputs. If something isn't applicable to your scenario, try clearing the associated input to obtain different results.</p>
-                                                        <p>For example, if you don't offer an introductory price, clear the value in the &quot;Intro Price&quot; field. If you don't require a contract, clear the value in the &quot;Contract Length&quot; field.</p>
+                                                        <p>The label will react based on the presence of different
+                                                            inputs. If something isn't applicable to your scenario, try
+                                                            clearing the associated input to obtain different
+                                                            results.</p>
+                                                        <p>For example, if you don't offer an introductory price, clear
+                                                            the value in the &quot;Intro Price&quot; field. If you don't
+                                                            require a contract, clear the value in the &quot;Contract
+                                                            Length&quot; field.</p>
                                                     </div>
                                                 </div>
                                                 <!-- /.col-12 -->
@@ -117,7 +124,7 @@
 
                                             <div class="row">
 
-                                                <div class="col-3">
+                                                <div class="col-lg-3 col-sm-6 col-xs-12">
 
                                                     <div class="form-group">
                                                         <label for="txtProviderName">Provider Name</label>
@@ -251,7 +258,7 @@
                                                 </div>
                                                 <!-- /.col -->
 
-                                                <div class="col-3">
+                                                <div class="col-lg-3 col-sm-6 col-xs-12">
 
                                                     <div class="form-group">
                                                         <label for="txtMonthlyPrice">Monthly Price</label>
@@ -364,7 +371,7 @@
                                                 </div>
                                                 <!-- /.col -->
 
-                                                <div class="col-6">
+                                                <div class="col-lg-6 col-xs-12">
 
                                                     <div class="card card-row card-secondary">
 
@@ -609,9 +616,7 @@
                         </div>
                         <!-- /.col -->
 
-                        <div class="col-2" data-bind="template: 'label-template'">
-
-                        </div>
+                        <div class="col-lg-2 col-xs-12" data-bind="template: 'label-template'"></div>
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
