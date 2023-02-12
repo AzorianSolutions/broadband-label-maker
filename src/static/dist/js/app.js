@@ -173,7 +173,10 @@ let LabelModel = function (data) {
     self.updateLabelMarkup = function () {
         let tpl = $("<div>");
         ko.applyBindingsToNode(tpl[0], {template: {name: 'label-template', data: self}});
-        let html = tpl.html().trim();
+        let html = tpl.html()
+            .replace(/\>[\r\n ]+\</g, "><")
+            .replace(/(<.*?>)|\s+/g, (m, $1) => $1 ? $1 : ' ')
+            .trim();
         tpl.remove();
         self.label_markup(html);
     }

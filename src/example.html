@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Azorian Solutions Broadband Label Example</title>
     <style>
-        .bbl {font-size: small;line-height: 1.4;border: 1px solid #000;float: left;padding: .5rem;margin-bottom: .5rem;background-color: #fff;max-width: 400px;}
+        .bbl {font-size: small;line-height: 1.4;border: 1px solid #000;float: left;padding: .5rem;margin-bottom: .5rem;background-color: #fff;min-width: 250px;max-width: 400px;}
         .bbl a, .bbl a:active, .bbl a:hover, .bbl a:visited {color: #007bff;}
         .bbl p {margin: 0}
         .bbl section {border-bottom: 2px solid #000;padding: 0 0 .25rem;margin: 0 0 .5rem}
         .bbl section h4 {font-weight: 700;font-size: .9rem;margin: 0 0 .1rem}
-        .bbl section h4 span, .bbl section h5 span, .bbl section ul li span:last-child, .bbl section p span:last-child, .bbl section p a {float: right;font-weight: 700}
+        .bbl section h4 span, .bbl section h5 span, .bbl section ul li span:last-of-type, .bbl section p span:last-of-type, .bbl section p a {float: right;font-weight: 700}
         .bbl section h5 {font-weight: 400;font-size: .8rem;padding-left: 1em;margin: 0}
         .bbl section ul {padding: 0 0 0 1em;margin: 0 0 .5rem}
         .bbl section ul li {list-style-type: none;padding: 0 0 0 .8em}
@@ -20,19 +20,18 @@
         .bbl section.header h2 {font-size: 1.2rem}
         .bbl section.header h3 {font-size: 1rem}
         .bbl section.header p {margin: 0}
-        .bbl section.header p span:last-child {float: none}
+        .bbl section.header p span:last-of-type {float: none}
         .bbl section.monthly {border-bottom: 2px solid #000;padding: 0 0 .25rem;margin: 0 0 .5rem}
         .bbl section.monthly h4 {font-weight: 700;font-size: 1rem;border-bottom: 5px solid #000;margin: 0 0 .1rem}
         .bbl section.monthly p {margin-top: .4em}
         .bbl section.monthly p span {float: none;font-weight: 700}
         .bbl section.monthly p a {float: none}
-        .bbl section.additional-charges > h5:nth-child(0n+6) {margin: 0 0 .5rem}
-        .bbl section.discounts p {padding-left: 1em}
-        .bbl section.discounts p:nth-child(0n+3) {margin-top: .5rem}
+        .bbl section.additional-charges > h5:nth-of-type(0n+3) {margin: 0 0 .5rem}
+        .bbl section.discounts p {padding-left: 1em; margin-top: .1rem}
         .bbl section.discounts p a {float: none}
         .bbl section.discounts ul {margin: .4em 0 .2em}
         .bbl section.acp p {padding-left: 1em}
-        .bbl section.acp p:nth-child(0n+3) {padding: .2em 0 0 2em;font-weight: 700}
+        .bbl section.acp p:last-of-type {padding: .2em 0 0 2em;font-weight: 700}
         .bbl section.acp p a {float: none}
         .bbl section.speeds p {padding-left: 1em}
         .bbl section.data p {padding-left: 1em}
@@ -40,160 +39,13 @@
         .bbl section.support p {padding-left: 1em;margin-top: .2em}
         .bbl section.support p a {float: none}
         .bbl section.footer {border-bottom: none;margin-bottom: 0;padding-bottom: 0}
-        .bbl section.footer p:nth-child(0n+2) {margin: .2em 0}
-        .bbl section.footer p:nth-child(0n+2) a {float: right}
+        .bbl section.footer p:nth-of-type(0n+2) {margin: .2em 0}
+        .bbl section.footer p:nth-of-type(0n+2) a {float: right}
     </style>
 </head>
 <body>
 <div style="width: 800px;">
-    <article class="bbl">
-        <section class="header">
-            <h1>Broadband Facts</h1>
-            <h2 data-bind="text: provider_name">Azorian Solutions</h2>
-            <h3 data-bind="text: service_plan_name">Bronze 10</h3>
-            <p data-bind="text: technology() + ' Broadband Consumer Disclosure'">Fixed Broadband Consumer Disclosure</p>
-        </section>
-        <section class="monthly">
-            <h4>Monthly Price <span
-                    data-bind="text: '$' + (intro_price() ? intro_price() : monthly_price())">$49.99</span>
-            </h4>
-            <p>This Monthly Price <span data-bind="text: intro_price() ? 'is' : 'is not'">is</span> an
-                introductory rate.</p>
-            <p data-bind="if: intro_period()">This rate expires after
-                <span data-bind="text: intro_period">12</span> <span data-bind="text: intro_period_unit">month(s)</span>
-                and will revert to <span data-bind="text: '$' + monthly_price()">$69.99</span> per month.
-            </p>
-            <!-- ko if: contract_length -->
-            <p>This Monthly Price requires a <span data-bind="text: contract_length">24</span> <span
-                    data-bind="text: contract_length_unit">month(s)</span> contract.</p>
-            <p><a href="https://your-website.com/contract-terms" target="_blank"
-                  data-bind="attr: { href: contract_terms_url, title: contract_terms_url }"
-                  title="https://your-website.com/contract-terms">Click
-                Here</a> for contract terms.</p>
-            <!-- /ko -->
-            <p data-bind="ifnot: contract_length"></p></section>
-        <section class="additional-charges">
-            <h4>Additional Charges &amp; Terms</h4>
-            <h5>Provider Monthly Fees<span data-bind="ifnot: monthly_fees().length"></span></h5>
-            <ul>
-                <!-- ko foreach: monthly_fees -->
-                <li><span data-bind="text: $data.label">Equipment Rental</span> <span
-                        data-bind="text: '$' + $data.fee()">$7.99</span>
-                </li>
-
-                <li><span data-bind="text: $data.label">Insurance</span> <span
-                        data-bind="text: '$' + $data.fee()">$2.99</span></li>
-
-                <li><span data-bind="text: $data.label">Managed WiFi</span> <span
-                        data-bind="text: '$' + $data.fee()">$3.99</span></li>
-                <!-- /ko -->
-            </ul>
-            <h5>One-time Fees at the Time of Purchase<span data-bind="ifnot: one_time_fees().length"></span></h5>
-            <ul>
-                <!-- ko foreach: one_time_fees -->
-                <li><span data-bind="text: $data.label">Install Fee</span> <span
-                        data-bind="text: '$' + $data.fee()">$199.99</span></li>
-
-                <li><span data-bind="text: $data.label">Router Setup Fee</span> <span
-                        data-bind="text: '$' + $data.fee()">$49.99</span>
-                </li>
-                <!-- /ko -->
-            </ul>
-            <h5>Early Termination Fee <span
-                    data-bind="text: early_termination_fee() == '' ? 'None' : '$' + early_termination_fee()">$250</span>
-            </h5>
-            <h5>Government Taxes <span>Varies by Location</span></h5>
-        </section>
-        <section class="discounts">
-            <h4>Discounts &amp; Bundles</h4>
-            <p data-bind="if: !discounts().length"></p>
-            <!-- ko if: discounts().length -->
-            <p>
-                <a href="https://your-website.com/discounts" target="_blank"
-                   data-bind="attr: { href: discounts_url, title: discounts_url }"
-                   title="https://your-website.com/discounts">Click Here</a>
-                for available billing discounts and
-                pricing options for broadband service bundled with other services like video,
-                phone, and wireless service, and use your own equipment like modems and routers.</p>
-            <ul data-bind="foreach: discounts">
-                <li><a href="https://your-website.com/discounts#military" target="_blank"
-                       data-bind="text: $data.label, attr: { href: $data.url, title: $data.url }"
-                       title="https://your-website.com/discounts#military">Military Discount</a>
-                    <span data-bind="text: $data.amount">50%</span></li>
-
-                <li><a href="https://your-website.com/discounts#seniors" target="_blank"
-                       data-bind="text: $data.label, attr: { href: $data.url, title: $data.url }"
-                       title="https://your-website.com/discounts#seniors">Senior Discount</a>
-                    <span data-bind="text: $data.amount">15%</span></li>
-
-                <li><a href="https://your-website.com/discounts#summer-special" target="_blank"
-                       data-bind="text: $data.label, attr: { href: $data.url, title: $data.url }"
-                       title="https://your-website.com/discounts#summer-special">Summer Special</a>
-                    <span data-bind="text: $data.amount">$10/month</span></li>
-            </ul>
-            <!-- /ko -->
-        </section>
-        <section class="acp">
-            <h4>Affordable Connectivity Program (ACP)</h4>
-            <p>The ACP is a government program to help lower the monthly cost of internet service.
-                To learn more about the ACP, including to find out whether you qualify, visit
-                <a href="https://affordableconnectivity.gov" target="_blank">affordableconnectivity.gov</a>.
-            </p>
-            <p>Participates in the ACP <span data-bind="text: acp">No</span>
-            </p>
-        </section>
-        <section class="speeds">
-            <h4>Speeds Provided with Plan</h4>
-            <p>Typical Download Speed <span
-                    data-bind="text: download_speed() + ' ' + download_speed_unit()">75 Mbps</span>
-            </p>
-            <p>Typical Upload Speed <span data-bind="text: upload_speed() + ' ' + upload_speed_unit()">20 Mbps</span>
-            </p>
-            <p>Typical Latency <span data-bind="text: latency() + ' ' + latency_unit()">20 ms</span></p>
-        </section>
-        <section class="data">
-            <h4>Data Included with Monthly Price <span data-bind="text: data_included_formatted">1000 GB</span></h4>
-            <p data-bind="if: data_included">Charges for Additional Data Usage <span
-                    data-bind="text: additional_data_formatted">$5 / 100 GB</span></p>
-        </section>
-        <section class="policies">
-            <p data-bind="if: !network_management_policy_url().length &amp;&amp; !privacy_policy_url().length"></p>
-            <p data-bind="if: network_management_policy_url().length">Network Management
-                <a href="https://your-website.com/network-management-policy" target="_blank"
-                   data-bind="attr: { href: network_management_policy_url, title: network_management_policy_url }"
-                   title="https://your-website.com/network-management-policy">Read
-                    our Policy</a></p>
-            <p data-bind="if: privacy_policy_url().length">Privacy
-                <a href="https://your-website.com/privacy-policy" target="_blank"
-                   data-bind="attr: { href: privacy_policy_url, title: privacy_policy_url }"
-                   title="https://your-website.com/privacy-policy">Read
-                    our Policy</a></p>
-        </section>
-        <section class="support">
-            <h4>Customer Support</h4>
-            <p>Contact Us:
-                <!-- ko if: support_phone().length -->
-                <a href="tel:5555555555" target="_blank"
-                   data-bind="text: support_phone_formatted, attr: { href: support_phone_url, title: support_phone_formatted }"
-                   title="(555) 555-5555">(555) 555-5555</a>
-                <!-- /ko -->
-            </p>
-            <p data-bind="if: support_email">&nbsp;<a href="mailto:support@your-website.com" target="_blank"
-                                                      data-bind="text: support_email, attr: { href: 'mailto:' + support_email(), title: support_email }"
-                                                      title="support@your-website.com">support@your-website.com</a>
-            </p>
-            <p data-bind="if: support_url">&nbsp;<a href="https://your-website.com/support" target="_blank"
-                                                    data-bind="text: support_url, attr: { href: support_url, title: support_url }"
-                                                    title="https://your-website.com/support">https://your-website.com/support</a>
-            </p>
-        </section>
-        <section class="footer">
-            <p>Learn more about the terms used on this label by visiting the Federal Communications
-                Commission's Consumer Resource Center.</p>
-            <p>&nbsp;<a href="https://fcc.gov/consumer" target="_blank">fcc.gov/consumer</a></p>
-            <p data-bind="text: id">BRNZ-1234567890</p>
-        </section>
-    </article>
+    <article class="bbl"><section class="header"><h1>Broadband Facts</h1><h2 data-bind="text: provider_name">Azorian Solutions</h2><h3 data-bind="text: service_plan_name">Bronze 10</h3><p data-bind="text: technology() + ' Broadband Consumer Disclosure'">Fixed Broadband Consumer Disclosure</p></section><section class="monthly"><h4>Monthly Price <span data-bind="text: '$' + (intro_price() &amp;&amp; intro_period() ? intro_price() : monthly_price())">$49.99</span></h4><p>This Monthly Price <span data-bind="text: intro_price() &amp;&amp; intro_period() ? 'is' : 'is not'">is</span> an introductory rate.</p><p data-bind="if: intro_price() &amp;&amp; intro_period()">This rate expires after <span data-bind="text: intro_period">12</span><span data-bind="text: intro_period_unit">month(s)</span> and will revert to <span data-bind="text: '$' + monthly_price()">$69.99</span> per month. </p><!-- ko if: contract_length --><p>This Monthly Price requires a <span data-bind="text: contract_length">24</span><span data-bind="text: contract_length_unit">month(s)</span> contract.</p><p><a href="https://your-website.com/contract-terms" target="_blank" data-bind="attr: { href: contract_terms_url, title: contract_terms_url }" title="https://your-website.com/contract-terms">Click Here</a> for contract terms.</p><!-- /ko --><p data-bind="ifnot: contract_length"></p></section><section class="additional-charges"><h4>Additional Charges &amp; Terms</h4><h5>Provider Monthly Fees<span data-bind="ifnot: monthly_fees().length"></span></h5><ul><!-- ko foreach: monthly_fees --><li><span data-bind="text: $data.label">Equipment Rental</span><span data-bind="text: '$' + $data.fee()">$7.99</span></li><li><span data-bind="text: $data.label">Insurance</span><span data-bind="text: '$' + $data.fee()">$2.99</span></li><li><span data-bind="text: $data.label">Managed WiFi</span><span data-bind="text: '$' + $data.fee()">$3.99</span></li><!-- /ko --></ul><h5>One-time Fees at the Time of Purchase<span data-bind="ifnot: one_time_fees().length"></span></h5><ul><!-- ko foreach: one_time_fees --><li><span data-bind="text: $data.label">Install Fee</span><span data-bind="text: '$' + $data.fee()">$199.99</span></li><li><span data-bind="text: $data.label">Router Setup Fee</span><span data-bind="text: '$' + $data.fee()">$49.99</span></li><!-- /ko --></ul><h5>Early Termination Fee <span data-bind="text: early_termination_fee() == '' || !contract_length() ? 'None' : '$' + early_termination_fee()">$250</span></h5><h5>Government Taxes <span>Varies by Location</span></h5></section><section class="discounts"><h4>Discounts &amp; Bundles</h4><p data-bind="if: !discounts().length"></p><!-- ko if: discounts().length --><p><a href="https://your-website.com/discounts" target="_blank" data-bind="attr: { href: discounts_url, title: discounts_url }" title="https://your-website.com/discounts">Click Here</a> for available billing discounts and pricing options for broadband service bundled with other services like video, phone, and wireless service, and use your own equipment like modems and routers.</p><ul data-bind="foreach: discounts"><li><a href="https://your-website.com/discounts#military" target="_blank" data-bind="text: $data.label, attr: { href: $data.url, title: $data.url }" title="https://your-website.com/discounts#military">Military Discount</a><span data-bind="text: $data.amount">50%</span></li><li><a href="https://your-website.com/discounts#seniors" target="_blank" data-bind="text: $data.label, attr: { href: $data.url, title: $data.url }" title="https://your-website.com/discounts#seniors">Senior Discount</a><span data-bind="text: $data.amount">15%</span></li><li><a href="https://your-website.com/discounts#summer-special" target="_blank" data-bind="text: $data.label, attr: { href: $data.url, title: $data.url }" title="https://your-website.com/discounts#summer-special">Summer Special</a><span data-bind="text: $data.amount">$10/month</span></li></ul><!-- /ko --></section><section class="acp"><h4>Affordable Connectivity Program (ACP)</h4><p>The ACP is a government program to help lower the monthly cost of internet service. To learn more about the ACP, including to find out whether you qualify, visit <a href="https://affordableconnectivity.gov" target="_blank">affordableconnectivity.gov</a>. </p><p>Participates in the ACP <span data-bind="text: acp">No</span></p></section><section class="speeds"><h4>Speeds Provided with Plan</h4><p>Typical Download Speed <span data-bind="text: download_speed() + ' ' + download_speed_unit()">75 Mbps</span></p><p>Typical Upload Speed <span data-bind="text: upload_speed() + ' ' + upload_speed_unit()">20 Mbps</span></p><p>Typical Latency <span data-bind="text: latency() + ' ' + latency_unit()">20 ms</span></p></section><section class="data"><h4>Data Included with Monthly Price <span data-bind="text: data_included_formatted">1000 GB</span></h4><p data-bind="if: data_included">Charges for Additional Data Usage <span data-bind="text: additional_data_formatted">$5 / 100 GB</span></p></section><section class="policies"><p data-bind="if: !network_management_policy_url().length &amp;&amp; !privacy_policy_url().length"></p><p data-bind="if: network_management_policy_url().length">Network Management <a href="https://your-website.com/network-management-policy" target="_blank" data-bind="attr: { href: network_management_policy_url, title: network_management_policy_url }" title="https://your-website.com/network-management-policy">Read our Policy</a></p><p data-bind="if: privacy_policy_url().length">Privacy <a href="https://your-website.com/privacy-policy" target="_blank" data-bind="attr: { href: privacy_policy_url, title: privacy_policy_url }" title="https://your-website.com/privacy-policy">Read our Policy</a></p></section><section class="support"><h4>Customer Support</h4><p>Contact Us: <!-- ko if: support_phone().length --><a href="tel:5555555555" target="_blank" data-bind="text: support_phone_formatted, attr: { href: support_phone_url, title: support_phone_formatted }" title="(555) 555-5555">(555) 555-5555</a><!-- /ko --></p><p data-bind="if: support_email">&nbsp;<a href="mailto:support@your-website.com" target="_blank" data-bind="text: support_email, attr: { href: 'mailto:' + support_email(), title: support_email }" title="support@your-website.com">support@your-website.com</a></p><p data-bind="if: support_url">&nbsp;<a href="https://your-website.com/support" target="_blank" data-bind="text: support_url, attr: { href: support_url, title: support_url }" title="https://your-website.com/support">https://your-website.com/support</a></p></section><section class="footer"><p>Learn more about the terms used on this label by visiting the Federal Communications Commission's Consumer Resource Center.</p><p>&nbsp;<a href="https://fcc.gov/consumer" target="_blank">fcc.gov/consumer</a></p><p data-bind="text: id">BRNZ-1234567890</p></section></article>
 </div>
 </body>
 </html>
