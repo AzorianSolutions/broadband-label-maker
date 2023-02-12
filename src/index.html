@@ -28,7 +28,7 @@
         .bbl p {margin: 0}
         .bbl section {border-bottom: 2px solid #000;padding: 0 0 .25rem;margin: 0 0 .5rem}
         .bbl section h4 {font-weight: 700;font-size: .9rem;margin: 0 0 .1rem}
-        .bbl section h4 span, .bbl section h5 span, .bbl section ul li span:last-child, .bbl section p span:last-child, .bbl section p a {float: right;font-weight: 700}
+        .bbl section h4 span, .bbl section h5 span, .bbl section ul li span:last-of-type, .bbl section p span:last-of-type, .bbl section p a {float: right;font-weight: 700}
         .bbl section h5 {font-weight: 400;font-size: .8rem;padding-left: 1em;margin: 0}
         .bbl section ul {padding: 0 0 0 1em;margin: 0 0 .5rem}
         .bbl section ul li {list-style-type: none;padding: 0 0 0 .8em}
@@ -39,19 +39,18 @@
         .bbl section.header h2 {font-size: 1.2rem}
         .bbl section.header h3 {font-size: 1rem}
         .bbl section.header p {margin: 0}
-        .bbl section.header p span:last-child {float: none}
+        .bbl section.header p span:last-of-type {float: none}
         .bbl section.monthly {border-bottom: 2px solid #000;padding: 0 0 .25rem;margin: 0 0 .5rem}
         .bbl section.monthly h4 {font-weight: 700;font-size: 1rem;border-bottom: 5px solid #000;margin: 0 0 .1rem}
         .bbl section.monthly p {margin-top: .4em}
         .bbl section.monthly p span {float: none;font-weight: 700}
         .bbl section.monthly p a {float: none}
-        .bbl section.additional-charges > h5:nth-child(0n+6) {margin: 0 0 .5rem}
-        .bbl section.discounts p {padding-left: 1em}
-        .bbl section.discounts p:nth-child(0n+3) {margin-top: .5rem}
+        .bbl section.additional-charges > h5:nth-of-type(0n+3) {margin: 0 0 .5rem}
+        .bbl section.discounts p {padding-left: 1em; margin-top: .5rem}
         .bbl section.discounts p a {float: none}
         .bbl section.discounts ul {margin: .4em 0 .2em}
         .bbl section.acp p {padding-left: 1em}
-        .bbl section.acp p:nth-child(0n+3) {padding: .2em 0 0 2em;font-weight: 700}
+        .bbl section.acp p:last-of-type {padding: .2em 0 0 2em;font-weight: 700}
         .bbl section.acp p a {float: none}
         .bbl section.speeds p {padding-left: 1em}
         .bbl section.data p {padding-left: 1em}
@@ -59,8 +58,8 @@
         .bbl section.support p {padding-left: 1em;margin-top: .2em}
         .bbl section.support p a {float: none}
         .bbl section.footer {border-bottom: none;margin-bottom: 0;padding-bottom: 0}
-        .bbl section.footer p:nth-child(0n+2) {margin: .2em 0}
-        .bbl section.footer p:nth-child(0n+2) a {float: right}
+        .bbl section.footer p:nth-of-type(0n+2) {margin: .2em 0}
+        .bbl section.footer p:nth-of-type(0n+2) a {float: right}
     </style>
 </head>
 <body class="sidebar-collapse">
@@ -814,8 +813,7 @@
                 To learn more about the ACP, including to find out whether you qualify, visit
                 <a href="https://affordableconnectivity.gov" target="_blank">affordableconnectivity.gov</a>.
             </p>
-            <p>Participates in the ACP <span data-bind="text: acp"></span>
-            </p>
+            <p>Participates in the ACP <span data-bind="text: acp"></span></p>
         </section>
         <section class="speeds">
             <h4>Speeds Provided with Plan</h4>
