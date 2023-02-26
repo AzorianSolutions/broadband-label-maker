@@ -1,5 +1,6 @@
-# broadband-labeler
-This project contains a simple tool for generating FCC mandated broadband consumer labels.
+# Broadband Label Maker
+
+An HTML5 compliant broadband label maker to meet impending FCC requirements.
 
 The project demo can be found at [https://bblmaker.com](https://bblmaker.com).
 
