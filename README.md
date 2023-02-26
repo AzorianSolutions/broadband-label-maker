@@ -3,6 +3,9 @@ This project contains a simple tool for generating FCC mandated broadband consum
 
 The project demo can be found at [https://bblmaker.com](https://bblmaker.com).
 
+[![CodeQL](https://github.com/AzorianSolutions/broadband-label-maker/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/AzorianSolutions/broadband-label-maker/actions/workflows/codeql-analysis.yml)
+[![MegaLinter](https://github.com/AzorianSolutions/broadband-label-maker/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/AzorianSolutions/broadband-label-maker/actions/workflows/mega-linter.yml)
+
 ## Installation
 
 To set up the project locally, you will need to have [NPM](https://www.npmjs.com) installed.
