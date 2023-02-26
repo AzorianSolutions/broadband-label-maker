@@ -5,7 +5,6 @@ An HTML5 compliant broadband label maker to meet impending FCC requirements.
 The project demo can be found at [https://bblmaker.com](https://bblmaker.com).
 
 [![CodeQL](https://github.com/AzorianSolutions/broadband-label-maker/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/AzorianSolutions/broadband-label-maker/actions/workflows/codeql-analysis.yml)
-[![MegaLinter](https://github.com/AzorianSolutions/broadband-label-maker/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/AzorianSolutions/broadband-label-maker/actions/workflows/mega-linter.yml)
 
 ## Installation
 
